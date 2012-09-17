@@ -1,4 +1,4 @@
-package minigolf.webapp
+package de.javandry.minigolf.webapp.balls
 
 class Manufacturer {
 

@@ -1,4 +1,4 @@
-package minigolf.webapp
+package de.javandry.minigolf.webapp.balls
 
 import grails.plugin.spock.UnitSpec
 import grails.test.mixin.TestFor
