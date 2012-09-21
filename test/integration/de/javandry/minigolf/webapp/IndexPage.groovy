@@ -1,7 +1,7 @@
-package de.javandry.minigolf.webapp.home
+package de.javandry.minigolf.webapp
 
 import geb.Page
 
-class HomePage extends Page {
+class IndexPage extends Page {
     static url = "http://localhost:8080/minigolf-webapp/"
 }
