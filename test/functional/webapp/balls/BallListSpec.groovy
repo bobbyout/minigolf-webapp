@@ -7,12 +7,11 @@ import spock.lang.Ignore
 
 class BallListSpec extends GebSpec {
 
-    @Ignore
-    def "home page forwards to ball list"() {
-        given: "go to home page"
-        to IndexPage
+    def "shows all balls"() {
+        given: "at ball list"
+        to BallListPage
 
-        expect: "forwarded to ball list page"
-        waitFor{ at BallListPage }
+        expect:
+        at BallListPage
     }
 }
