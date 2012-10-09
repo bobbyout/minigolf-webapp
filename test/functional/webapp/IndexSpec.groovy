@@ -1,11 +1,13 @@
-package de.javandry.minigolf.webapp
+package webapp
 
 import geb.spock.GebSpec
 
-import de.javandry.minigolf.webapp.balls.BallListPage
+import webapp.balls.BallListPage
+import spock.lang.Ignore
 
 class IndexSpec extends GebSpec {
 
+    @Ignore
     def "open index page forwards to ball list"() {
         given: "go to index page"
         to IndexPage

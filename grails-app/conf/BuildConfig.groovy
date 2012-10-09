@@ -58,8 +58,8 @@ grails.project.dependency.resolution = {
 
         compile ":cache:1.0.0"
         compile ":functional-spock:0.6"
+        compile ":geb:0.7.2"
 
         test ":spock:0.6"
-        test ":geb:0.7.2"
     }
 }

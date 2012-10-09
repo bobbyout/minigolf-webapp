@@ -1,4 +1,4 @@
-package de.javandry.minigolf.webapp.balls
+package webapp.balls
 
 import geb.Page
 
