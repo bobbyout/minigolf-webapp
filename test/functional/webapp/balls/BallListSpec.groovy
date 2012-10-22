@@ -32,5 +32,7 @@ class BallListSpec extends GebSpec {
         then:
         at BallListPage
         contains(ball1);
+        contains(ball2);
+        contains(ball3);
     }
 }
