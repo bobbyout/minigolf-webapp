@@ -61,5 +61,6 @@ grails.project.dependency.resolution = {
         compile ":geb:0.7.2"
 
         test ":spock:0.6"
+        test ":build-test-data:2.0.3"
     }
 }

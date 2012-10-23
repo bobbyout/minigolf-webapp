@@ -14,6 +14,10 @@ class BallListPage extends Page {
         ballRows { moduleList BallRow, $("table tbody tr") }
     }
 
+    def contains(List<Ball> balls) {
+        balls.each {contains(it)}
+    }
+
     def contains(Ball ball) {
         ballRows.find { it.name == ball.name };
     }
