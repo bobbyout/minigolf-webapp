@@ -46,6 +46,7 @@ grails.project.dependency.resolution = {
         runtime ":hibernate:$grailsVersion"
         runtime ":jquery:1.8.0"
         runtime ":resources:1.1.6"
+        runtime ":database-migration:1.1"
 
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0"
@@ -54,13 +55,11 @@ grails.project.dependency.resolution = {
 
         build ":tomcat:$grailsVersion"
 
-        runtime ":database-migration:1.1"
-
         compile ":cache:1.0.0"
-        compile ":functional-spock:0.6"
-        compile ":geb:0.7.2"
 
+        test ":functional-spock:0.6"
         test ":spock:0.6"
+        test ":geb:0.7.2"
         test ":build-test-data:2.0.3"
     }
 }

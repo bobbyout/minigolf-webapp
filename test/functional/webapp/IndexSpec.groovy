@@ -7,7 +7,6 @@ import spock.lang.Ignore
 
 class IndexSpec extends GebSpec {
 
-    @Ignore
     def "open index page forwards to ball list"() {
         given: "go to index page"
         to IndexPage
