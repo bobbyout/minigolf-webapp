@@ -56,10 +56,10 @@ grails.project.dependency.resolution = {
         build ":tomcat:$grailsVersion"
 
         compile ":cache:1.0.0"
+        compile ":functional-spock:0.6"
+        compile ":geb:0.7.2"
+        compile ":build-test-data:2.0.3"
 
-        test ":functional-spock:0.6"
         test ":spock:0.6"
-        test ":geb:0.7.2"
-        test ":build-test-data:2.0.3"
     }
 }
