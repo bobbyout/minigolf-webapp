@@ -11,6 +11,7 @@ class BallListPage extends Page {
 
     static content = {
         ballRows { moduleList BallRow, $("table tbody tr") }
+        createButton(to: BallCreatePage) { $('a', class: 'create') }
     }
 
     def contains(List<Ball> balls) {

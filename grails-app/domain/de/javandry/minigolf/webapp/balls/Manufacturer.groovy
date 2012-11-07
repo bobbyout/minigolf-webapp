@@ -9,4 +9,9 @@ class Manufacturer {
         shortName(nullable: false)
         longName(nullable: true)
     }
+
+    @Override
+    String toString() {
+        return longName
+    }
 }
