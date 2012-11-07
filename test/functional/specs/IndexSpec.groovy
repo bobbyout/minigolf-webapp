@@ -1,9 +1,8 @@
-package webapp
+package specs
 
 import geb.spock.GebSpec
-
-import webapp.balls.BallListPage
-import spock.lang.Ignore
+import pages.BallListPage
+import pages.IndexPage
 
 class IndexSpec extends GebSpec {
 
@@ -12,6 +11,6 @@ class IndexSpec extends GebSpec {
         to IndexPage
 
         expect: "forwarded to ball list page"
-        waitFor{ at BallListPage }
+        waitFor { at BallListPage }
     }
 }

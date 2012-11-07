@@ -1,8 +1,9 @@
-package webapp.balls
+package specs.balls
 
 import de.javandry.minigolf.webapp.balls.Ball
 import de.javandry.minigolf.webapp.balls.Manufacturer
 import geb.spock.GebSpec
+import pages.BallListPage
 
 class BallListSpec extends GebSpec {
 

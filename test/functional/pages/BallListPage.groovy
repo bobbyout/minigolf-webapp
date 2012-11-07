@@ -1,8 +1,7 @@
-package webapp.balls
+package pages
 
-import geb.Page
-import webapp.IndexPage
 import de.javandry.minigolf.webapp.balls.Ball
+import geb.Page
 import modules.balls.BallRow
 
 class BallListPage extends Page {

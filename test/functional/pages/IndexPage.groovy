@@ -1,4 +1,4 @@
-package webapp
+package pages
 
 import geb.Page
 
