@@ -5,12 +5,11 @@ import grails.test.mixin.TestFor
 
 import static de.javandry.minigolf.webapp.balls.Size.*
 import static de.javandry.minigolf.webapp.balls.Surface.*
-import spock.lang.Unroll
 
 @TestFor(Ball)
 class BallSpec extends UnitSpec {
 
-    void "always has a name"() {
+    void "without name is invalid"() {
         setup:
         Ball ball = new Ball(name: null)
 
@@ -23,7 +22,20 @@ class BallSpec extends UnitSpec {
         assert ball.errors.hasFieldErrors("name")
     }
 
-    void "can have a manufacturer"() {
+    void "with empty name is invalid"() {
+        setup:
+        Ball ball = new Ball(name: "")
+
+        when:
+        ball.validate()
+
+        then:
+        assert ball.hasProperty("name")
+        assert ball.hasErrors()
+        assert ball.errors.hasFieldErrors("name")
+    }
+
+    void "is valid without a manufacturer"() {
         setup:
         Ball ball = new Ball(name: "ball", manufacturer: null)
 
@@ -35,7 +47,7 @@ class BallSpec extends UnitSpec {
         assert !ball.hasErrors()
     }
 
-    void "can have a size"() {
+    void "is valid without a size"() {
         setup:
         Ball ball = new Ball(name: "ball", size: null)
 
@@ -59,12 +71,12 @@ class BallSpec extends UnitSpec {
 
         where:
         aSize | isValid
-        k | true
-        m | true
-        g | true
+        k     | true
+        m     | true
+        g     | true
     }
 
-    void "can have a surface"() {
+    void "is valid without a surface"() {
         setup:
         Ball ball = new Ball(name: "ball", surface: null)
 
@@ -88,12 +100,12 @@ class BallSpec extends UnitSpec {
 
         where:
         aSurface | isValid
-        l | true
-        r | true
-        x | true
+        l        | true
+        r        | true
+        x        | true
     }
 
-    void "can have a speed"() {
+    void "is valid without a speed"() {
         setup:
         Ball ball = new Ball(name: "ball", speed: null)
 
@@ -105,7 +117,6 @@ class BallSpec extends UnitSpec {
         assert !ball.hasErrors()
     }
 
-    @Unroll("speed #aSpeed is valid = #isValid")
     void "speed has to be between 0 and 99.5"() {
         setup:
         Ball ball = new Ball(name: "ball", speed: aSpeed);
@@ -117,20 +128,20 @@ class BallSpec extends UnitSpec {
         assert isValid == !ball.hasErrors()
 
         where:
-        aSpeed  | isValid
-        0       | true
-        0.5     | true
-        1       | true
-        2.5     | true
-        10      | true
-        99      | true
-        99.5    | true
-        100     | false
-        101     | false
-        -1      | false
+        aSpeed | isValid
+        0      | true
+        0.5    | true
+        1      | true
+        2.5    | true
+        10     | true
+        99     | true
+        99.5   | true
+        100    | false
+        101    | false
+        -1     | false
     }
 
-    void "can have a shore hardness"() {
+    void "is valid without a shore hardness"() {
         setup:
         Ball ball = new Ball(name: "ball", shore: null)
 
@@ -142,7 +153,6 @@ class BallSpec extends UnitSpec {
         assert !ball.hasErrors()
     }
 
-    @Unroll("shore hardness #aShore is valid = #isValid")
     void "shore hardness has to be between 0 and 100"() {
         setup:
         Ball ball = new Ball(name: "ball", shore: aShore);
@@ -154,20 +164,20 @@ class BallSpec extends UnitSpec {
         assert isValid == !ball.hasErrors()
 
         where:
-        aShore  | isValid
-        0       | true
-        0.5     | true
-        1       | true
-        2.5     | true
-        10      | true
-        99      | true
-        99.5    | true
-        100     | true
-        101     | false
-        -1      | false
+        aShore | isValid
+        0      | true
+        0.5    | true
+        1      | true
+        2.5    | true
+        10     | true
+        99     | true
+        99.5   | true
+        100    | true
+        101    | false
+        -1     | false
     }
 
-    void "can have a weight"() {
+    void "is valid without a weight"() {
         setup:
         Ball ball = new Ball(name: "ball", weight: null)
 
@@ -179,7 +189,6 @@ class BallSpec extends UnitSpec {
         assert !ball.hasErrors()
     }
 
-    @Unroll("weight #aWeight is valid = #isValid")
     void "weight has to be between 0 and 250"() {
         setup:
         Ball ball = new Ball(name: "ball", weight: aWeight);
@@ -191,7 +200,7 @@ class BallSpec extends UnitSpec {
         assert isValid == !ball.hasErrors()
 
         where:
-        aWeight  | isValid
+        aWeight | isValid
         0       | true
         0.5     | true
         1       | true

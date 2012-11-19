@@ -33,4 +33,38 @@ class CreateBallSpec extends GebSpec {
         at BallListPage
         contains(new Ball(manufacturer: manufacturer3D, name: "type 543", size: Size.m, surface: Surface.l, speed: 24, shore: 50, weight: 47))
     }
+
+    def "create ball with name only"() {
+        given:
+        to BallListPage
+        createButton.click()
+
+        expect:
+        at BallCreatePage
+
+        when:
+        name.value("type 543")
+        createButton.click()
+
+        then:
+        at BallListPage
+        contains(new Ball(name: "type 543"))
+    }
+
+    def "submit empty form"() {
+        given:
+        to BallListPage
+        createButton.click()
+
+        expect:
+        at BallCreatePage
+
+        when:
+        createButton.click()
+
+        then:
+        at BallCreatePage
+        errorForField("name") != null
+        errorForField("name") == "Please enter a name for your ball"
+    }
 }

@@ -12,7 +12,7 @@ class Ball {
 
     static constraints = {
         manufacturer(nullable: true)
-        name(nullable: false)
+        name(nullable: false, blank: false)
         size(nullable: true)
         surface(nullable: true)
         speed(nullable: true, min: 0.0, max: 99.9)
