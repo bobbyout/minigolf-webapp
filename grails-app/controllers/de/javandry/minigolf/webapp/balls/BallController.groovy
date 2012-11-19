@@ -27,7 +27,7 @@ class BallController {
         }
 
         flash.message = message(code: 'default.created.message', args: [message(code: 'ball.label', default: 'Ball'), ballInstance.id])
-        redirect(action: "show", id: ballInstance.id)
+        redirect(action: "list")
     }
 
     def show(Long id) {

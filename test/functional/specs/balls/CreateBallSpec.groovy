@@ -7,7 +7,6 @@ import de.javandry.minigolf.webapp.balls.Surface
 import geb.spock.GebSpec
 import pages.BallCreatePage
 import pages.BallListPage
-import pages.BallShowPage
 
 class CreateBallSpec extends GebSpec {
 
@@ -29,12 +28,6 @@ class CreateBallSpec extends GebSpec {
         shore.value("50")
         weight.value("47")
         createButton.click()
-
-        then:
-        at BallShowPage
-
-        and:
-        listButton.click()
 
         then:
         at BallListPage

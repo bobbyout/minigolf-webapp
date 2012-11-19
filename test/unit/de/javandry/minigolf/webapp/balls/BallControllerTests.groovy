@@ -43,7 +43,7 @@ class BallControllerTests {
         populateValidParams(params)
         controller.save()
 
-        assert response.redirectedUrl == '/ball/show/1'
+        assert response.redirectedUrl == '/ball/list'
         assert controller.flash.message != null
         assert Ball.count() == 1
     }
