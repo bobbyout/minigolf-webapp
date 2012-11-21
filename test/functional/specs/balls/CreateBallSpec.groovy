@@ -4,11 +4,11 @@ import de.javandry.minigolf.webapp.balls.Ball
 import de.javandry.minigolf.webapp.balls.Manufacturer
 import de.javandry.minigolf.webapp.balls.Size
 import de.javandry.minigolf.webapp.balls.Surface
-import geb.spock.GebSpec
 import pages.BallCreatePage
 import pages.BallListPage
+import specs.LoggedInAsUserSpec
 
-class CreateBallSpec extends GebSpec {
+class CreateBallSpec extends LoggedInAsUserSpec {
 
     def "create ball with all properties"() {
         given: "manufacturer 3D"

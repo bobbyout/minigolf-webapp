@@ -1,10 +1,9 @@
 package specs
 
-import geb.spock.GebSpec
 import pages.BallListPage
 import pages.IndexPage
 
-class IndexSpec extends GebSpec {
+class IndexSpec extends LoggedInAsUserSpec {
 
     def "open index page forwards to ball list"() {
         given: "go to index page"

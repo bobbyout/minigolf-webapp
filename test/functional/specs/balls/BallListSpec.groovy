@@ -2,10 +2,10 @@ package specs.balls
 
 import de.javandry.minigolf.webapp.balls.Ball
 import de.javandry.minigolf.webapp.balls.Manufacturer
-import geb.spock.GebSpec
 import pages.BallListPage
+import specs.LoggedInAsUserSpec
 
-class BallListSpec extends GebSpec {
+class BallListSpec extends LoggedInAsUserSpec {
 
     def "shows all balls"() {
         given: "three balls"
