@@ -28,7 +28,7 @@ class BootStrap {
 
         UserRole.create userUser, userRole, true
 
-        assert User.count() == 3
+        assert User.count() == 2
         assert Role.count() == 2
         assert UserRole.count() == 2
 
