@@ -55,6 +55,7 @@ grails.project.dependency.resolution = {
 
         build ":tomcat:$grailsVersion"
 
+        // TODO fix deprecated warnings
         compile ":cache:1.0.0"
         compile ":functional-spock:0.6"
         compile ":geb:0.7.2"
