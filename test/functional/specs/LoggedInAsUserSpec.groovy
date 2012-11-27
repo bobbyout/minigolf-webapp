@@ -1,10 +1,10 @@
 package specs
 
 import geb.spock.GebSpec
-import pages.LoginPage
 
 class LoggedInAsUserSpec extends GebSpec {
 
+    /*
     def setup() {
         println(this.getBrowser().baseUrl)
         println(this.getBrowser().driver.currentUrl)
@@ -14,4 +14,5 @@ class LoggedInAsUserSpec extends GebSpec {
         waitFor { at LoginPage }
         loginWith("user", "password")
     }
+    */
 }
