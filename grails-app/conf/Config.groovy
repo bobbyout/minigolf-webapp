@@ -88,6 +88,9 @@ log4j = {
             'org.springframework',
             'org.hibernate',
             'net.sf.ehcache.hibernate'
+
+    info 'DebugSpec',
+            'specs'
 }
 
 // Added by the Spring Security Core plugin:
