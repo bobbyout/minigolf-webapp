@@ -9,7 +9,7 @@ class IndexSpec extends LoggedInAsUserSpec {
     def "open index page forwards to ball list"() {
         given: "go to index page"
         to IndexPage
-        Logger.getLogger(IndexSpec.class).info(browser.driver.pageSource)
+        Logger.getLogger(IndexSpec.class).error(browser.driver.pageSource)
 
         expect: "forwarded to ball list page"
         waitFor { at BallListPage }
