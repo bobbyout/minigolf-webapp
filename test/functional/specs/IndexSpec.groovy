@@ -10,7 +10,7 @@ class IndexSpec extends LoggedInAsUserSpec {
         to IndexPage
 
         expect: "forwarded to ball list page"
-        browser.driver.pageSource.contains("TEST")
+        browser.driver.pageSource.contains("Ball List")
         waitFor { at BallListPage }
     }
 }

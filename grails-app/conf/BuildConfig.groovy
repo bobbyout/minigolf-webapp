@@ -61,6 +61,7 @@ grails.project.dependency.resolution = {
         compile ":geb:0.7.2"
         compile ":build-test-data:2.0.3"
         compile ":spring-security-core:1.2.7.3"
+        compile ":webxml:1.4.1"
 
         test ":spock:0.6"
     }
