@@ -2,12 +2,11 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>javandry - minigolf-specs</title>
-    <meta http-equiv="refresh" content="0; URL=ball/list/">
+    <title>javandry - minigolf - Status</title>
 </head>
 
 <body>
-<div id="status" role="complementary">
+<div id="status" role="complementary" style="margin-left: 35px;">
     <h1>Application Status</h1>
     <ul>
         <li>App version: <g:meta name="app.version"/></li>
@@ -29,7 +28,7 @@
     </ul>
 </div>
 
-<div id="controller-list" role="navigation">
+<div id="controller-list" role="navigation" style="margin-left: 35px;">
     <h2>Available Controllers:</h2>
     <ul>
         <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName }}">
