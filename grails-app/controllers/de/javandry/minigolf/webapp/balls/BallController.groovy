@@ -1,8 +1,9 @@
 package de.javandry.minigolf.webapp.balls
 
+import grails.plugins.springsecurity.Secured
 import org.springframework.dao.DataIntegrityViolationException
 
-//@Secured(['ROLE_USER'])
+@Secured(['ROLE_USER'])
 class BallController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
