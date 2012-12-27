@@ -40,6 +40,8 @@
 
             <g:sortableColumn property="shore" title="${message(code: 'ball.shore.label', default: 'Shore')}"/>
 
+            <g:sortableColumn property="weight" title="${message(code: 'ball.weight.label', default: 'Weight')}"/>
+
         </tr>
         </thead>
         <tbody>
@@ -58,6 +60,8 @@
                 <td>${fieldValue(bean: ballInstance, field: "speed")}</td>
 
                 <td>${fieldValue(bean: ballInstance, field: "shore")}</td>
+
+                <td>${fieldValue(bean: ballInstance, field: "weight")}</td>
 
             </tr>
         </g:each>

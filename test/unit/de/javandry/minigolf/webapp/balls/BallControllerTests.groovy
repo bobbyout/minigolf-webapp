@@ -19,7 +19,6 @@ class BallControllerTests {
     }
 
     void testList() {
-
         def model = controller.list()
 
         assert model.ballInstanceList.size() == 0
