@@ -27,14 +27,23 @@
     <div id="title">${message(code: 'app.title')}</div>
 
     <div id="menu">
-        <!--<a href="${createLink(controller: 'welcome', action: 'index')}" class="button">${message(code: 'app.home.title')}</a>-->
-        <a href="${createLink(controller: 'ball', action: 'list')}"
-           class="button">${message(code: 'app.balls.title')}</a>
-        <a href="${createLink(controller: 'manufacturer', action: 'list')}"
-           class="button">${message(code: 'app.manufacturer.title')}</a>
-        <!--<a href="#" class="button">${message(code: 'app.plans.title')}</a>-->
-        <!--<a href="#" class="button">${message(code: 'app.friends.title')}</a>-->
-        <a href="${createLink(uri: '/status')}" class="button">Status</a>
+    <!--<a href="${createLink(controller: 'welcome', action: 'index')}" class="button">${message(code: 'app.home.title')}</a>-->
+        <sec:ifAllGranted roles="ROLE_USER">
+            <a href="${createLink(controller: 'ball', action: 'list')}"
+               class="button">${message(code: 'app.balls.title')}</a>
+        </sec:ifAllGranted>
+        <sec:ifAllGranted roles="ROLE_ADMIN">
+            <a href="${createLink(controller: 'manufacturer', action: 'list')}"
+               class="button">${message(code: 'app.manufacturer.title')}</a>
+        </sec:ifAllGranted>
+    <!--<a href="#" class="button">${message(code: 'app.plans.title')}</a>-->
+    <!--<a href="#" class="button">${message(code: 'app.friends.title')}</a>-->
+        <sec:ifAllGranted roles="ROLE_ADMIN">
+            <a href="${createLink(uri: '/status')}" class="button">Status</a>
+        </sec:ifAllGranted>
+        <sec:ifLoggedIn>
+            <a href="${createLink(controller: 'logout')}" class="button">Logout</a>
+        </sec:ifLoggedIn>
     </div>
 </div>
 
