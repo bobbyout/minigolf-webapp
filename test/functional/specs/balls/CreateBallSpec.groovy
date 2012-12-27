@@ -12,7 +12,6 @@ class CreateBallSpec extends LoggedInAsUserSpec {
 
     def "create ball with all properties"() {
         given: "manufacturer 3D"
-        def manufacturer3D = Manufacturer.build(shortName: "3D", longName: "3D")
         to BallListPage
         createButton.click()
 
@@ -31,6 +30,7 @@ class CreateBallSpec extends LoggedInAsUserSpec {
 
         then:
         at BallListPage
+        Manufacturer manufacturer3D = Manufacturer.find(new Manufacturer(shortName: '3D'))
         contains(new Ball(manufacturer: manufacturer3D, name: "type 543", size: Size.m, surface: Surface.l, speed: 24, shore: 50, weight: 47))
     }
 

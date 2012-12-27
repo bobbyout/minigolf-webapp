@@ -35,6 +35,7 @@ class BootStrap {
         if (!Manufacturer.count) {
             new Manufacturer(shortName: "3D", longName: "3D").save(failOnError: true)
             new Manufacturer(shortName: "B&M", longName: "Beck & Meth").save(failOnError: true)
+            new Manufacturer(shortName: "R", longName: "Reisinger").save(failOnError: true)
         }
     }
 
