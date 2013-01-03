@@ -29,13 +29,14 @@ class BallControllerTests {
         def model = controller.create()
 
         assert model.ballInstance != null
+        assert view == '/ball/list'
     }
 
     void testSave() {
         controller.save()
 
         assert model.ballInstance != null
-        assert view == '/ball/create'
+        assert view == '/ball/list'
 
         response.reset()
 

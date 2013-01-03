@@ -11,14 +11,6 @@
 <a href="#list-ball" class="skip" tabindex="-1"><g:message code="default.link.skip.label"
                                                            default="Skip to content&hellip;"/></a>
 
-<div class="nav" role="navigation">
-    <ul>
-        <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-        <li><g:link class="create" action="create"><g:message code="default.new.label"
-                                                              args="[entityName]"/></g:link></li>
-    </ul>
-</div>
-
 <div id="list-ball" class="content scaffold-list" role="main">
     <h1><g:message code="default.list.label" args="[entityName]"/></h1>
     <g:if test="${flash.message}">
@@ -68,9 +60,56 @@
         </tbody>
     </table>
 
+    <g:form action="save">
+        <table>
+            <tbody>
+            <tr>
+                <td colspan="6">
+                    <g:hasErrors bean="${ballInstance}">
+                        <ul class="errors" role="alert">
+                            <g:eachError bean="${ballInstance}" var="error">
+                                <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message
+                                        error="${error}"/></li>
+                            </g:eachError>
+                        </ul>
+                    </g:hasErrors>
+                </td>
+                <td><g:submitButton name="save" class="save"
+                                    value="${message(code: 'default.button.save.label', default: 'Save')}"/></td>
+            </tr>
+            <tr>
+                <td><g:select id="manufacturer" name="manufacturer.id"
+                              from="${de.javandry.minigolf.webapp.balls.Manufacturer.list()}"
+                              optionKey="id" value="${ballInstance?.manufacturer?.id}" class="many-to-one"
+                              noSelection="['null': '']"/></td>
+                <td><g:textField name="name" value="${ballInstance?.name}"/></td>
+                <td><g:select name="size" from="${de.javandry.minigolf.webapp.balls.Size?.values()}"
+                              keys="${de.javandry.minigolf.webapp.balls.Size.values()*.name()}"
+                              value="${ballInstance?.size?.name()}"
+                              noSelection="['': '']"/></td>
+                <td><g:select name="surface" from="${de.javandry.minigolf.webapp.balls.Surface?.values()}"
+                              keys="${de.javandry.minigolf.webapp.balls.Surface.values()*.name()}"
+                              value="${ballInstance?.surface?.name()}" noSelection="['': '']"/></td>
+                <td><g:field name="speed" type="number" value="${fieldValue(bean: ballInstance, field: 'speed')}"/></td>
+                <td><g:field name="shore" type="number" value="${fieldValue(bean: ballInstance, field: 'shore')}"/></td>
+                <td><g:field name="weight" type="number"
+                             value="${fieldValue(bean: ballInstance, field: 'weight')}"/></td>
+            </tr>
+            </tbody>
+        </table>
+    </g:form>
+
     <div class="pagination">
         <g:paginate total="${ballInstanceTotal}"/>
     </div>
+</div>
+
+<div class="nav" role="navigation">
+    <ul>
+        <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+        <li><g:link class="create" action="create"><g:message code="default.new.label"
+                                                              args="[entityName]"/></g:link></li>
+    </ul>
 </div>
 </body>
 </html>

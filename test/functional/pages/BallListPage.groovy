@@ -11,15 +11,30 @@ class BallListPage extends Page {
 
     static content = {
         ballRows { moduleList BallRow, $("table tbody tr") }
-        createButton(to: BallCreatePage) { $('a', class: 'create') }
+
+        createButton { $('a', class: 'create') }
+        saveButton { $('input', id: 'save') }
+
+        manufacturer { $('select', id: 'manufacturer') }
+        name { $('input', id: 'name') }
+        size { $('select', id: 'size') }
+        surface { $('select', id: 'surface') }
+        speed { $('input', id: 'speed') }
+        shore { $('input', id: 'shore') }
+        weight { $('input', id: 'weight') }
+
+        errors { $('ul.errors') }
     }
 
     def contains(List<Ball> balls) {
-        balls.each {contains(it)}
+        balls.each { contains(it) }
     }
 
     def contains(Ball ball) {
         ballRows.find { it.name == ball.name };
     }
 
+    def errorForField(String field) {
+        return errors.find("li", "data-field-id": field).text()
+    }
 }
