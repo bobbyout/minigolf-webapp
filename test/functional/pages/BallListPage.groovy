@@ -37,4 +37,8 @@ class BallListPage extends Page {
     def errorForField(String field) {
         return errors.find("li", "data-field-id": field).text()
     }
+
+    def editButtonForBall(String name) {
+        return ballRows.find { it.name == name }.editButton
+    }
 }

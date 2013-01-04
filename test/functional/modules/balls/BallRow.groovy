@@ -11,6 +11,7 @@ class BallRow extends Module {
         surface { cell(3).text() }
         speed { cell(4).text() }
         shore { cell(5).text() }
-        // weight { cell(6).text() }
+        weight { cell(6).text() }
+        editButton { cell(0).find("a") }
     }
 }

@@ -111,7 +111,7 @@ class BallControllerTests {
         populateValidParams(params)
         controller.update()
 
-        assert response.redirectedUrl == "/ball/show/$ball.id"
+        assert response.redirectedUrl == "/ball/list"
         assert flash.message != null
 
         //test outdated version number
