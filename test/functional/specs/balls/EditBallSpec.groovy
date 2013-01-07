@@ -12,7 +12,8 @@ class EditBallSpec extends LoggedInAsUserSpec {
 
     def "modify all properties"() {
         given:
-        Ball.build(name: "type 543", manufacturer: Manufacturer.build(shortName: "3D", longName: "3D"))
+        def manufacturer3D = Manufacturer.build(shortName: "3D", longName: "3D")
+        Ball.build(name: "type 543", manufacturer: manufacturer3D)
         to BallListPage
         def editButton = editButtonForBall("type 543")
         editButton.click()
@@ -34,5 +35,6 @@ class EditBallSpec extends LoggedInAsUserSpec {
         at BallListPage
         Manufacturer manufacturerBuM = Manufacturer.find(new Manufacturer(shortName: 'B&M'))
         contains(new Ball(manufacturer: manufacturerBuM, name: "A1", size: Size.k, surface: Surface.r, speed: 51, shore: 43, weight: 35))
+        !contains(new Ball(manufacturer: manufacturer3D, name: "type 543"))
     }
 }
