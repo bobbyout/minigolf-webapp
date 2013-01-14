@@ -82,6 +82,7 @@ class BallControllerTests {
         def model = controller.edit()
 
         assert model.ballInstance == ball
+        assert view == '/ball/list'
     }
 
     void testUpdate() {
@@ -103,7 +104,7 @@ class BallControllerTests {
 
         controller.update()
 
-        assert view == "/ball/edit"
+        assert view == "/ball/list"
         assert model.ballInstance != null
 
         ball.clearErrors()
@@ -123,7 +124,7 @@ class BallControllerTests {
         params.version = -1
         controller.update()
 
-        assert view == "/ball/edit"
+        assert view == "/ball/list"
         assert model.ballInstance != null
         assert model.ballInstance.errors.getFieldError('version')
         assert flash.message != null

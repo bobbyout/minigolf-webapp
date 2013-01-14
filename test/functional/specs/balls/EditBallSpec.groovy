@@ -4,22 +4,26 @@ import de.javandry.minigolf.webapp.balls.Ball
 import de.javandry.minigolf.webapp.balls.Manufacturer
 import de.javandry.minigolf.webapp.balls.Size
 import de.javandry.minigolf.webapp.balls.Surface
-import pages.BallEditPage
 import pages.BallListPage
 import specs.LoggedInAsUserSpec
 
 class EditBallSpec extends LoggedInAsUserSpec {
 
+    def setup() {
+        Ball.executeUpdate("DELETE FROM Ball")
+        assert Ball.count == 0
+    }
+
     def "modify all properties"() {
         given:
-        def manufacturer3D = Manufacturer.build(shortName: "3D", longName: "3D")
+        def manufacturer3D = Manufacturer.findByShortName("3D")
         Ball.build(name: "type 543", manufacturer: manufacturer3D)
         to BallListPage
         def editButton = editButtonForBall("type 543")
         editButton.click()
 
         expect:
-        at BallEditPage
+        at BallListPage
 
         when:
         manufacturer.value("Beck & Meth")
@@ -29,11 +33,11 @@ class EditBallSpec extends LoggedInAsUserSpec {
         speed.value("51")
         shore.value("43")
         weight.value("35")
-        saveButton.click()
+        updateButton.click()
 
         then:
         at BallListPage
-        Manufacturer manufacturerBuM = Manufacturer.find(new Manufacturer(shortName: 'B&M'))
+        Manufacturer manufacturerBuM = Manufacturer.findByShortName("B&M")
         contains(new Ball(manufacturer: manufacturerBuM, name: "A1", size: Size.k, surface: Surface.r, speed: 51, shore: 43, weight: 35))
         !contains(new Ball(manufacturer: manufacturer3D, name: "type 543"))
     }

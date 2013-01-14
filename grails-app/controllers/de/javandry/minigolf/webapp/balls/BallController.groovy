@@ -54,7 +54,9 @@ class BallController {
             return
         }
 
-        [ballInstance: ballInstance]
+        def model = [ballInstanceList: Ball.list(), ballInstanceTotal: Ball.count(), ballInstance: ballInstance]
+        render(view: "list", model: model)
+        return model
     }
 
     def update(Long id, Long version) {
@@ -70,7 +72,7 @@ class BallController {
                 ballInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
                         [message(code: 'ball.label', default: 'Ball')] as Object[],
                         "Another user has updated this Ball while you were editing")
-                render(view: "edit", model: [ballInstance: ballInstance])
+                render(view: "list", model: [ballInstance: ballInstance])
                 return
             }
         }
@@ -78,7 +80,7 @@ class BallController {
         ballInstance.properties = params
 
         if (!ballInstance.save(flush: true)) {
-            render(view: "edit", model: [ballInstance: ballInstance])
+            render(view: "list", model: [ballInstance: ballInstance])
             return
         }
 

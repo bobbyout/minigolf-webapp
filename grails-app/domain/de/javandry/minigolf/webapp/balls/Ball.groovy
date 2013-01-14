@@ -19,4 +19,9 @@ class Ball {
         shore(nullable: true, min: 0.0, max: 100.0)
         weight(nullable: true, min: 0.0, max: 250.0)
     }
+
+    @Override
+    String toString() {
+        return "Ball(id: $id, manufacturer: $manufacturer, name: $name)"
+    }
 }

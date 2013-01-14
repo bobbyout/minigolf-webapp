@@ -14,6 +14,7 @@ class BallListPage extends Page {
 
         createButton { $('a', class: 'create') }
         saveButton { $('input', id: 'save') }
+        updateButton { $('input', id: 'update') }
 
         manufacturer { $('select', id: 'manufacturer') }
         name { $('input', id: 'name') }
