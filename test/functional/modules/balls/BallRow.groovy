@@ -12,6 +12,7 @@ class BallRow extends Module {
         speed { cell(4).text() }
         shore { cell(5).text() }
         weight { cell(6).text() }
-        editButton { cell(0).find("a") }
+        editButton { cell(7).find("input#edit") }
+        deleteButton { cell(7).find("input#delete") }
     }
 }

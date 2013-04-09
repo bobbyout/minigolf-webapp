@@ -133,12 +133,12 @@
                         <td class="shore">${fieldValue(bean: nextBall, field: "shore")}</td>
                         <td class="weight">${fieldValue(bean: nextBall, field: "weight")}</td>
                         <td class="actions">
-                            <g:actionSubmitImage action="edit" class="buttons"
+                            <g:actionSubmitImage id="edit" action="edit" class="buttons"
                                                  value="${message(code: 'default.button.edit.label')}"
                                                  alt="${message(code: 'default.button.edit.label')}"
                                                  title="${message(code: 'default.button.edit.label')}"
                                                  src="${resource(dir: 'images/skin/', file: 'edit-4.png')}"/>
-                            <g:actionSubmitImage action="delete" class="buttons"
+                            <g:actionSubmitImage id="delete" action="delete" class="buttons"
                                                  value="${message(code: 'default.button.delete.label')}"
                                                  alt="${message(code: 'default.button.delete.label')}"
                                                  title="${message(code: 'default.button.delete.label')}"
@@ -170,7 +170,7 @@
         </g:hasErrors>
         </td>
         <td><g:submitButton id="save" name="save" class="save"
-                                    value="${message(code: 'default.button.save.label', default: 'Save')}"/></td>
+                            value="${message(code: 'default.button.save.label', default: 'Save')}"/></td>
             </tr>
             <tr>
                 <td><g:select id="manufacturer" name="manufacturer.id"
