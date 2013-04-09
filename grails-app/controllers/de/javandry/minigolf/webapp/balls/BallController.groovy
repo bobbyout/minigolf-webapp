@@ -18,7 +18,7 @@ class BallController {
     }
 
     def create() {
-        def model = [ballInstanceList: Ball.list(), ballInstanceTotal: Ball.count(), ballInstance: new Ball(params)]
+        def model = [ballInstanceList: Ball.list(), ballInstanceTotal: Ball.count(), ballInstance: new Ball(params), newBall: true]
         render(view: "list", model: model)
         return model
     }
@@ -91,19 +91,18 @@ class BallController {
     def delete(Long id) {
         def ballInstance = Ball.get(id)
         if (!ballInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'ball.label', default: 'Ball'), id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'ball.label'), id])
             redirect(action: "list")
             return
         }
 
         try {
             ballInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'ball.label', default: 'Ball'), id])
+            flash.message = message(code: 'default.deleted.message', args: [message(code: 'ball.label'), id])
             redirect(action: "list")
-        }
-        catch (DataIntegrityViolationException ignored) {
-            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'ball.label', default: 'Ball'), id])
-            redirect(action: "show", id: id)
+        } catch (DataIntegrityViolationException ignored) {
+            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'ball.label'), id])
+            redirect(action: "list")
         }
     }
 }

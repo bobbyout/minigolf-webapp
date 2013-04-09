@@ -1,0 +1,50 @@
+#ball-list-content {
+}
+
+#ball-list-table {
+    width: auto;
+}
+
+#ball-list-table td {
+    overflow: hidden;
+}
+
+th.manufacturer, td.manufacturer {
+    width: 100px;
+    max-width: 100px;
+}
+
+th.name, td.name {
+    width: 200px;
+    max-width: 200px;
+}
+
+th.size, td.size {
+    width: 50px;
+    max-width: 50px;
+}
+
+th.surface, td.surface {
+    width: 80px;
+    max-width: 80px;
+}
+
+th.speed, td.speed {
+    width: 40px;
+    max-width: 40px;
+}
+
+th.shore, td.shore {
+    width: 40px;
+    max-width: 40px;
+}
+
+th.weight, td.weight {
+    width: 40px;
+    max-width: 40px;
+}
+
+th.actions, td.actions {
+    width: 78px;
+    max-width: 78px;
+}
