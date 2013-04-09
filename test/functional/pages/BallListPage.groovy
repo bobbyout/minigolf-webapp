@@ -7,7 +7,7 @@ import modules.balls.BallRow
 class BallListPage extends Page {
     static url = IndexPage.url + "ball/list/"
 
-    static at = { title == "Ball List" }
+    static at = { title == "My Balls" }
 
     static content = {
         ballRows { moduleList BallRow, $("table tbody tr") }
