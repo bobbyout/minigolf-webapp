@@ -22,16 +22,10 @@
             <g:link controller="ball" action="list" class="brand" elementId="logo">Balls</g:link>
             <ul class="nav">
                 <li class="divider-vertical"></li>
-                <li><g:link controller="question">Questions</g:link></li>
+                <li><g:link controller="manufacturer">Manufacturer</g:link></li>
                 <li class="divider-vertical"></li>
-                <li><g:link controller="tag">Tags</g:link></li>
-                <li class="divider-vertical"></li>
-                <li><g:link controller="user">Users</g:link></li>
-                <li class="divider-vertical"></li>
-                <li><a href="#">Badges</a></li>
             </ul>
             <ul class="nav pull-right">
-                <li><a href="#">Help</a></li>
                 <li class="divider-vertical"></li>
                 <sec:ifLoggedIn>
                     <li><g:link controller="logout" action="index">Logout <sec:username/></g:link></li>
