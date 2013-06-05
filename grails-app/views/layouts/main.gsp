@@ -1,61 +1,65 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"><!--<![endif]-->
+<html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title><g:layoutTitle default="Grails"/></title>
+    <meta charset="utf-8">
+    <title><g:layoutTitle default="Ohne Titel"/> | Javandry Minigolf Webapp</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
-    <link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
-    <link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
+
     <g:layoutHead/>
+    <r:require modules="bootstrap"/>
     <r:layoutResources/>
+
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
 </head>
 
 <body>
-<div id="header" role="banner">
-    <div id="logo">
-        <a href=""><img src="${resource(dir: 'images', file: 'logo-190x75.png')}" alt="logo"/></a>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <g:link controller="ball" action="list" class="brand" elementId="logo">Balls</g:link>
+            <ul class="nav">
+                <li class="divider-vertical"></li>
+                <li><g:link controller="question">Questions</g:link></li>
+                <li class="divider-vertical"></li>
+                <li><g:link controller="tag">Tags</g:link></li>
+                <li class="divider-vertical"></li>
+                <li><g:link controller="user">Users</g:link></li>
+                <li class="divider-vertical"></li>
+                <li><a href="#">Badges</a></li>
+            </ul>
+            <ul class="nav pull-right">
+                <li><a href="#">Help</a></li>
+                <li class="divider-vertical"></li>
+                <sec:ifLoggedIn>
+                    <li><g:link controller="logout" action="index">Logout <sec:username/></g:link></li>
+                </sec:ifLoggedIn>
+                <sec:ifNotLoggedIn>
+                    <li><g:link controller="login" action="auth">Login</g:link></li>
+                </sec:ifNotLoggedIn>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+
+    <div class="row-fluid">
+
+        <g:layoutBody/>
+
     </div>
 
-    <div id="title">${message(code: 'app.title')}</div>
+    <hr>
 
-    <div id="menu">
-    <!--<a href="${createLink(controller: 'welcome', action: 'index')}" class="button">${message(code: 'app.home.title')}</a>-->
-        <sec:ifAllGranted roles="ROLE_USER">
-            <a href="${createLink(controller: 'ball', action: 'list')}"
-               class="button">${message(code: 'app.balls.title')}</a>
-        </sec:ifAllGranted>
-        <sec:ifAllGranted roles="ROLE_ADMIN">
-            <a href="${createLink(controller: 'manufacturer', action: 'list')}"
-               class="button">${message(code: 'app.manufacturer.title')}</a>
-        </sec:ifAllGranted>
-    <!--<a href="#" class="button">${message(code: 'app.plans.title')}</a>-->
-    <!--<a href="#" class="button">${message(code: 'app.friends.title')}</a>-->
-        <sec:ifAllGranted roles="ROLE_ADMIN">
-            <a href="${createLink(uri: '/status')}" class="button">Status</a>
-        </sec:ifAllGranted>
-        <sec:ifLoggedIn>
-            <a href="${createLink(controller: 'logout')}" class="button">Logout</a>
-        </sec:ifLoggedIn>
-    </div>
+    <footer>
+        <p class="muted">© Torsten Mandry</p>
+    </footer>
+
 </div>
 
-<div id="body">
-    <g:layoutBody/>
-</div>
-
-<div id="footer" role="contentinfo">
-&copy; 2012 by Bobby Out
-</div>
-
-<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 <g:javascript library="application"/>
 <r:layoutResources/>
 </body>

@@ -1,7 +1,10 @@
 import de.javandry.minigolf.webapp.Role
 import de.javandry.minigolf.webapp.User
 import de.javandry.minigolf.webapp.UserRole
+import de.javandry.minigolf.webapp.balls.Ball
 import de.javandry.minigolf.webapp.balls.Manufacturer
+import de.javandry.minigolf.webapp.balls.Size
+import de.javandry.minigolf.webapp.balls.Surface
 
 class BootStrap {
 
@@ -32,11 +35,15 @@ class BootStrap {
         assert Role.count() == 2
         assert UserRole.count() == 2
 
-        if (!Manufacturer.count) {
-            new Manufacturer(shortName: "3D", longName: "3D").save(failOnError: true)
-            new Manufacturer(shortName: "B&M", longName: "Beck & Meth").save(failOnError: true)
-            new Manufacturer(shortName: "R", longName: "Reisinger").save(failOnError: true)
-        }
+        def manufacturer3D = new Manufacturer(shortName: "3D", longName: "3D").save(failOnError: true)
+        def manufacturerBM = new Manufacturer(shortName: "B&M", longName: "Beck & Meth").save(failOnError: true)
+        def manufacturerReis = new Manufacturer(shortName: "Reis.", longName: "Reisinger").save(failOnError: true)
+
+        new Ball(manufacturer: manufacturer3D, name: 'type 543', size: Size.m, surface: Surface.l).save(failOnError: true)
+        new Ball(manufacturer: manufacturer3D, name: '50 Jahre 1. MGC Köln', size: Size.m, surface: Surface.x).save(failOnError: true)
+        new Ball(manufacturer: manufacturerBM, name: 'H5', size: Size.k, surface: Surface.l).save(failOnError: true)
+        new Ball(manufacturer: manufacturerBM, name: 'B4', size: Size.k, surface: Surface.l).save(failOnError: true)
+        new Ball(manufacturer: manufacturerReis, name: 'BO 1', size: Size.k, surface: Surface.l).save(failOnError: true)
     }
 
     def destroy = {
