@@ -38,7 +38,7 @@
             <g:sortableColumn property="speed" title="${message(code: 'ball.speed.label')}" class="speed"/>
             <g:sortableColumn property="shore" title="${message(code: 'ball.shore.label')}" class="shore"/>
             <g:sortableColumn property="weight" title="${message(code: 'ball.weight.label')}" class="weight"/>
-            <th class="actions"><g:link action="create"><g:img dir="images/skin/" file="edit-add-2.png"/></g:link></th>
+            <th class="actions"><g:link action="create"><g:img dir="images/" file="edit-add-2.png"/></g:link></th>
         </tr>
         </thead>
         <tbody>
@@ -116,7 +116,7 @@
                         <g:actionSubmitImage id="delete" action="delete"
                                              value="${message(code: 'default.button.delete.label')}"
                                              alt="${message(code: 'default.button.delete.label')}"
-                                             src="${resource(dir: 'images/skin/', file: 'list-remove-4.png')}"
+                                             src="${resource(dir: 'images/', file: 'list-remove-4.png')}"
                                              formnovalidate=""
                                              onclick="return confirm('${message(code: 'default.button.delete.confirm.message')}');"/>
 
@@ -137,12 +137,12 @@
                                                  value="${message(code: 'default.button.edit.label')}"
                                                  alt="${message(code: 'default.button.edit.label')}"
                                                  title="${message(code: 'default.button.edit.label')}"
-                                                 src="${resource(dir: 'images/skin/', file: 'edit-4.png')}"/>
+                                                 src="${resource(dir: 'images/', file: 'edit-4.png')}"/>
                             <g:actionSubmitImage id="delete" action="delete" class="buttons"
                                                  value="${message(code: 'default.button.delete.label')}"
                                                  alt="${message(code: 'default.button.delete.label')}"
                                                  title="${message(code: 'default.button.delete.label')}"
-                                                 src="${resource(dir: 'images/skin/', file: 'list-remove-4.png')}"
+                                                 src="${resource(dir: 'images/', file: 'list-remove-4.png')}"
                                                  formnovalidate=""
                                                  onclick="return confirm('${message(code: 'default.button.delete.confirm.message')}');"/>
                         </td>
