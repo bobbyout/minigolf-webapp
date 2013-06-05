@@ -2,8 +2,8 @@ grails.servlet.version = "2.5" // Change depending on target container complianc
 grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
-grails.project.target.level = 1.6
-grails.project.source.level = 1.6
+grails.project.target.level = 1.7
+grails.project.source.level = 1.7
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
 grails.project.dependency.resolution = {
@@ -12,7 +12,7 @@ grails.project.dependency.resolution = {
         // specify dependency exclusions here; for example, uncomment this to disable ehcache:
         // excludes 'ehcache'
     }
-    log "error" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
+    log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
 
     repositories {
@@ -31,15 +31,20 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
     }
+
+    def seleniumVersion = "2.21.0"
+    def gebVersion = "0.9.0"
+
     dependencies {
-        // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
+        test("org.seleniumhq.selenium:selenium-htmlunit-driver:$seleniumVersion") {
+            exclude "xml-apis"
+        }
+        test "org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion"
+        test "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
+        test "org.seleniumhq.selenium:selenium-support:$seleniumVersion"
 
-        // runtime 'mysql:mysql-connector-java:5.1.20'
-        test "org.codehaus.geb:geb-spock:0.7.2"
-
-        test "org.seleniumhq.selenium:selenium-api:2.15.0"
-        test "org.seleniumhq.selenium:selenium-support:2.15.0"
-        test "org.seleniumhq.selenium:selenium-htmlunit-driver:2.15.0"
+        test "org.gebish:geb-spock:$gebVersion"
+        test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
     }
 
     plugins {
@@ -48,20 +53,16 @@ grails.project.dependency.resolution = {
         runtime ":resources:1.1.6"
         runtime ":database-migration:1.1"
 
-        // Uncomment these (or add new ones) to enable additional resources capabilities
-        //runtime ":zipped-resources:1.0"
-        //runtime ":cached-resources:1.0"
-        //runtime ":yui-minify-resources:0.1.4"
-
         build ":tomcat:$grailsVersion"
 
-        // compile ":cache:1.0.0"
-        compile ":functional-spock:0.6"
-        compile ":geb:0.7.2"
-        compile ":build-test-data:2.0.3"
+        compile ":cache:1.0.1"
         compile ":spring-security-core:1.2.7.3"
         compile ":webxml:1.4.1" // to fix ordering of filters in web.xml (see http://jira.grails.org/browse/GPCLOUDFOUNDRY-32)
 
-        test ":spock:0.6"
+        test ":geb:$gebVersion"
+        test(":spock:0.7") {
+            exclude "spock-grails-support"
+        }
+        test ":build-test-data:2.0.4"
     }
 }
