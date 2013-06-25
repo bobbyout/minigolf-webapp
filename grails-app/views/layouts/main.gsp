@@ -19,8 +19,10 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <g:link controller="ball" action="list" class="brand" elementId="logo">Balls</g:link>
             <ul class="nav">
+                <li><g:link controller="ball" action="list">Balls</g:link></li>
+                <li class="divider-vertical"></li>
+                <li><g:link controller="course" action="list">Courses</g:link></li>
                 <li class="divider-vertical"></li>
                 <li><g:link controller="manufacturer">Manufacturer</g:link></li>
                 <li class="divider-vertical"></li>
