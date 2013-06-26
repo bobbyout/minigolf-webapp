@@ -14,7 +14,7 @@ class LoginPage extends Page {
         loginButton { $("input", id: "submit") }
     }
 
-    static void loginWith(aUsername, aPassword) {
+    void loginWith(aUsername, aPassword) {
         username = aUsername
         password = aPassword
         loginButton.click()

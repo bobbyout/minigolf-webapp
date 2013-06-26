@@ -15,7 +15,7 @@ class CourseListPage extends Page {
         courses { moduleList CourseModule, $("li.media") }
     }
 
-    static boolean shows(Course course) {
+    boolean shows(Course course) {
         courses.find { it.name == course.name };
     }
 
