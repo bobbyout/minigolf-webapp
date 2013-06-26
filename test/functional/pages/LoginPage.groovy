@@ -6,7 +6,7 @@ class LoginPage extends Page {
 
     static url = "login/auth"
 
-    static at = { title == "Login" }
+    static at = { title.startsWith("Login") }
 
     static content = {
         username { $("input", id: "username") }
@@ -14,7 +14,7 @@ class LoginPage extends Page {
         loginButton { $("input", id: "submit") }
     }
 
-    def loginWith(aUsername, aPassword) {
+    static void loginWith(aUsername, aPassword) {
         username = aUsername
         password = aPassword
         loginButton.click()
