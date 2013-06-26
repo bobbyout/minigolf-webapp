@@ -9,6 +9,9 @@ import specs.LoggedInAsUserSpec
 class CreateCourseSpec extends LoggedInAsUserSpec {
 
     public static final String aCourseName = "course name"
+    public static final String aCourseTypeDescription = "Type 1 - Minigolf"
+    public static final Course.Type aCourseType = Course.Type.ABT_1
+    public static final String aCourseAddress = "Main Street 123, 45678 Downtown"
 
     def setup() {
         Course.findByName(aCourseName)?.delete(flush: true)
@@ -28,8 +31,8 @@ class CreateCourseSpec extends LoggedInAsUserSpec {
 
         when:
         name.value(aCourseName)
-        type.value("Type 1 - Minigolf")
-        address.value("Main Street 123, 45678 Downtown")
+        type.value(aCourseTypeDescription)
+        address.value(aCourseAddress)
         report "enter course data"
 
         createButton.click()
@@ -38,8 +41,8 @@ class CreateCourseSpec extends LoggedInAsUserSpec {
         then:
         at CourseShowPage
         name == aCourseName
-        type == "Type 1 - Minigolf"
-        address == "Main Street 123, 45678 Downtown"
+        type == aCourseTypeDescription
+        address == aCourseAddress
 
         when:
         listButton.click()
@@ -47,7 +50,7 @@ class CreateCourseSpec extends LoggedInAsUserSpec {
 
         then:
         at CourseListPage
-        shows(new Course(name: aCourseName, type: Course.Type.ABT_1, address: "Main Street 123, 45678 Downtown"))
+        shows(new Course(name: aCourseName, type: aCourseType, address: aCourseAddress))
     }
 
     def "create course without address"() {
@@ -64,7 +67,7 @@ class CreateCourseSpec extends LoggedInAsUserSpec {
 
         when:
         name.value(aCourseName)
-        type.value("Type 1 - Minigolf")
+        type.value(aCourseTypeDescription)
         report "enter course data"
 
         createButton.click()
@@ -73,7 +76,7 @@ class CreateCourseSpec extends LoggedInAsUserSpec {
         then:
         at CourseShowPage
         name == aCourseName
-        type == "Type 1 - Minigolf"
+        type == aCourseTypeDescription
         address == ""
 
         when:
@@ -82,6 +85,30 @@ class CreateCourseSpec extends LoggedInAsUserSpec {
 
         then:
         at CourseListPage
-        shows(new Course(name: aCourseName, type: Course.Type.ABT_1))
+        shows(new Course(name: aCourseName, type: aCourseType))
+    }
+
+    def "create course without name fails"() {
+        given:
+        to CourseListPage
+        report "go to course list page"
+
+        when:
+        createButton.click()
+        report "click create button"
+
+        then:
+        at CourseCreatePage
+
+        when:
+        type.value(aCourseTypeDescription)
+        report "enter course data"
+
+        createButton.click()
+        report "click create button"
+
+        then:
+        at CourseCreatePage
+        errorForField("name") == "Property [Name] of class [Course] cannot be blank"
     }
 }

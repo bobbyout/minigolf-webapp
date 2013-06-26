@@ -11,7 +11,7 @@ class Course {
     String address
 
     static constraints = {
-        name(nullable: false)
+        name(nullable: false, blank: false)
         type(nullable: false)
     }
 }

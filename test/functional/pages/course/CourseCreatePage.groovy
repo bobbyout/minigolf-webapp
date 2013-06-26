@@ -11,7 +11,10 @@ class CourseCreatePage extends Page {
         name { $("input", id: "name") }
         type { $("select", id: "type") }
         address { $("textarea", id: "address") }
-        createButton(to: CourseShowPage) { $("input", id: "create") }
+        createButton { $("input", id: "create") }
     }
 
+    String errorForField(String fieldName) {
+        return errors.find("li", "data-field-id": fieldName)?.text()?.trim()
+    }
 }
