@@ -4,8 +4,8 @@
 <html>
 <head>
     <meta name="layout" content="main">
-    <g:set var="entityName" value="${message(code: 'course.label', default: 'Course')}"/>
-    <title><g:message code="default.list.label" args="[entityName]"/></title>
+    <g:set var="entityName" value="${message(code: 'course.label')}"/>
+    <title><g:message code="course.list.title"/></title>
 </head>
 
 <body>
@@ -17,9 +17,16 @@
 <div class="span3">
     <div class="sidebar-nav">
         <ul class="nav nav-pills pull-right">
-            <li class="active"><g:link action="list"><g:message code="default.list.label"
-                                                                args="[entityName]"/></g:link></li>
-            <li><g:link action="create"><g:message code="default.new.label" args="[entityName]"/></g:link></li>
+            <li class="active">
+                <g:link action="list" elementId="list">
+                    <g:message code="default.list.label" args="[entityName]"/>
+                </g:link>
+            </li>
+            <li>
+                <g:link action="create" elementId="create">
+                    <g:message code="default.new.label" args="[entityName]"/>
+                </g:link>
+            </li>
         </ul>
     </div>
 </div>

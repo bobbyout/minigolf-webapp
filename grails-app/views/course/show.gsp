@@ -15,7 +15,8 @@
 <div class="span3">
     <div class="sidebar-nav">
         <ul class="nav nav-pills pull-right">
-            <li><g:link action="list"><g:message code="default.list.label" args="[entityName]"/></g:link></li>
+            <li><g:link elementId="list" action="list"><g:message code="default.list.label"
+                                                                  args="[entityName]"/></g:link></li>
             <li><g:link action="create"><g:message code="default.new.label" args="[entityName]"/></g:link></li>
         </ul>
     </div>
@@ -31,8 +32,8 @@
                 <g:message code="course.name.label"/>
             </label>
 
-            <div class="controls">
-                <g:fieldValue id="name" bean="${courseInstance}" field="name"/>
+            <div id="name" class="controls">
+                <g:fieldValue bean="${courseInstance}" field="name"/>
             </div>
         </div>
 
@@ -41,8 +42,8 @@
                 <g:message code="course.type.label"/>
             </label>
 
-            <div class="controls">
-                <g:fieldValue id="type" bean="${courseInstance}" field="type"/>
+            <div id="type" class="controls">
+                <g:message code="course.type.option.${courseInstance.type}"/>
             </div>
         </div>
 
@@ -51,8 +52,8 @@
                 <g:message code="course.address.label"/>
             </label>
 
-            <div class="controls">
-                <g:fieldValue id="address" bean="${courseInstance}" field="address"/>
+            <div id="address" class="controls">
+                <g:fieldValue bean="${courseInstance}" field="address"/>
             </div>
         </div>
     </div>
