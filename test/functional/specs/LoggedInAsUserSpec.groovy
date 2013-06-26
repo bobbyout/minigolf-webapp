@@ -1,9 +1,9 @@
 package specs
 
-import geb.spock.GebSpec
+import geb.spock.GebReportingSpec
 import pages.LoginPage
 
-class LoggedInAsUserSpec extends GebSpec {
+class LoggedInAsUserSpec extends GebReportingSpec {
 
     def setup() {
         to LoginPage

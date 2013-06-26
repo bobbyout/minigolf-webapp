@@ -9,15 +9,13 @@ import specs.LoggedInAsUserSpec
 class CreateCourseSpec extends LoggedInAsUserSpec {
 
     def "create course with all properties"() {
-        reportGroup "CreateCourseSpec - create course with all properties"
-
         given:
         to CourseListPage
-        report "01 - goto course list page"
+        report "01"
 
         when:
         createButton.click()
-        report "02 - click create button"
+        report "02"
 
         then:
         at CourseCreatePage
@@ -26,10 +24,10 @@ class CreateCourseSpec extends LoggedInAsUserSpec {
         name.value("course name")
         type.value("Type 1 - Minigolf")
         address.value("Main Street 123, 45678 Downtown")
-        report "03 - enter test data"
+        report "03"
 
         createButton.click()
-        report "04 - click create button"
+        report "04"
 
         then:
         at CourseShowPage
@@ -39,7 +37,7 @@ class CreateCourseSpec extends LoggedInAsUserSpec {
 
         when:
         listButton.click()
-        report "05 - click list button"
+        report "05"
 
         then:
         at CourseListPage
