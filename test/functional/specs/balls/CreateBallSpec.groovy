@@ -4,7 +4,7 @@ import de.javandry.minigolf.webapp.balls.Ball
 import de.javandry.minigolf.webapp.balls.Manufacturer
 import de.javandry.minigolf.webapp.balls.Size
 import de.javandry.minigolf.webapp.balls.Surface
-import pages.BallListPage
+import pages.ball.BallListPage
 import specs.LoggedInAsUserSpec
 
 class CreateBallSpec extends LoggedInAsUserSpec {

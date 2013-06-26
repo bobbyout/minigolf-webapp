@@ -1,8 +1,9 @@
-package pages
+package pages.ball
 
 import de.javandry.minigolf.webapp.balls.Ball
 import geb.Page
 import modules.balls.BallRow
+import pages.IndexPage
 
 class BallListPage extends Page {
     static url = IndexPage.url + "ball/list/"

@@ -1,7 +1,7 @@
 package specs
 
-import pages.BallListPage
 import pages.IndexPage
+import pages.ball.BallListPage
 
 class IndexSpec extends LoggedInAsUserSpec {
 
