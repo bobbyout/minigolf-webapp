@@ -17,4 +17,11 @@ class CourseCreatePage extends Page {
     String errorForField(String fieldName) {
         return errors.find("li", "data-field-id": fieldName)?.text()?.trim()
     }
+
+    void create(def args) {
+        name.value(args.name)
+        type.value(args.type)
+        address.value(args.address)
+        createButton.click()
+    }
 }

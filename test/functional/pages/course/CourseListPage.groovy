@@ -19,4 +19,8 @@ class CourseListPage extends Page {
         courses.find { it.name == course.name };
     }
 
+    void createNew() {
+        createButton.click()
+    }
+
 }

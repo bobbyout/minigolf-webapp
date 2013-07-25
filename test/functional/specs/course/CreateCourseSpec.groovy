@@ -8,10 +8,9 @@ import specs.LoggedInAsUserSpec
 
 class CreateCourseSpec extends LoggedInAsUserSpec {
 
-    public static final String aCourseName = "course name"
-    public static final String aCourseTypeDescription = "Type 1 - Minigolf"
-    public static final Course.Type aCourseType = Course.Type.ABT_1
-    public static final String aCourseAddress = "Main Street 123, 45678 Downtown"
+    private static final String aCourseName = "course name"
+    private static final Course.Type aCourseType = Course.Type.ABT_1
+    private static final String aCourseAddress = "Main Street 123, 45678 Downtown"
 
     def setup() {
         Course.findByName(aCourseName)?.delete(flush: true)
@@ -20,33 +19,22 @@ class CreateCourseSpec extends LoggedInAsUserSpec {
     def "create course with all properties"() {
         given:
         to CourseListPage
-        report "go to course list page"
 
         when:
-        createButton.click()
-        report "click create button"
+        createNew()
 
         then:
         at CourseCreatePage
 
         when:
-        name.value(aCourseName)
-        type.value(aCourseTypeDescription)
-        address.value(aCourseAddress)
-        report "enter course data"
-
-        createButton.click()
-        report "click create button"
+        create(name: aCourseName, type: aCourseType, address: aCourseAddress)
 
         then:
         at CourseShowPage
-        name == aCourseName
-        type == aCourseTypeDescription
-        address == aCourseAddress
+        shows(name: aCourseName, type: aCourseType, address: aCourseAddress)
 
         when:
-        listButton.click()
-        report "click list button"
+        listAll()
 
         then:
         at CourseListPage
@@ -56,32 +44,22 @@ class CreateCourseSpec extends LoggedInAsUserSpec {
     def "create course without address"() {
         given:
         to CourseListPage
-        report "go to course list page"
 
         when:
-        createButton.click()
-        report "click create button"
+        createNew()
 
         then:
         at CourseCreatePage
 
         when:
-        name.value(aCourseName)
-        type.value(aCourseTypeDescription)
-        report "enter course data"
-
-        createButton.click()
-        report "click create button"
+        create(name: aCourseName, type: aCourseType, address: "")
 
         then:
         at CourseShowPage
-        name == aCourseName
-        type == aCourseTypeDescription
-        address == ""
+        shows(name: aCourseName, type: aCourseType, address: "")
 
         when:
-        listButton.click()
-        report "click list button"
+        listAll()
 
         then:
         at CourseListPage
@@ -91,21 +69,15 @@ class CreateCourseSpec extends LoggedInAsUserSpec {
     def "create course without name fails"() {
         given:
         to CourseListPage
-        report "go to course list page"
 
         when:
-        createButton.click()
-        report "click create button"
+        createNew()
 
         then:
         at CourseCreatePage
 
         when:
-        type.value(aCourseTypeDescription)
-        report "enter course data"
-
-        createButton.click()
-        report "click create button"
+        create(name: "", type: aCourseType, address: "")
 
         then:
         at CourseCreatePage
