@@ -1,10 +1,9 @@
 package pages.course
 
 import de.javandry.minigolf.webapp.Course
-import geb.Page
 import pages.IndexPage
 
-class CourseListPage extends Page {
+class CourseListPage extends AbstractCoursePage {
     static url = IndexPage.url + "course/list/"
 
     static at = { title.startsWith "Courses" }
@@ -21,6 +20,10 @@ class CourseListPage extends Page {
 
     void createNew() {
         createButton.click()
+    }
+
+    void edit(String courseName) {
+        courses.find { it.name == courseName }?.editButton?.click();
     }
 
 }

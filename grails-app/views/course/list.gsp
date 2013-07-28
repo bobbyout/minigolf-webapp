@@ -56,7 +56,7 @@
 
                 <div class="media-body">
                     <div class="media-heading">
-                        <g:link action="edit"
+                        <g:link action="edit" class="editLink"
                                 id="${courseInstance.id}">${fieldValue(bean: courseInstance, field: "name")}</g:link>
                     </div>
                     <address>${courseInstance.address}</address>

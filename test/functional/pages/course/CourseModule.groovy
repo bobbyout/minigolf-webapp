@@ -6,5 +6,6 @@ class CourseModule extends Module {
 
     static content = {
         name { $("div", class: "media-heading").text()?.trim() }
+        editButton { $("a", class: "editLink") }
     }
 }

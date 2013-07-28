@@ -1,8 +1,6 @@
 package pages.course
 
-import geb.Page
-
-class CourseCreatePage extends Page {
+class CourseCreatePage extends AbstractCoursePage {
 
     static at = { title.startsWith "New Course" }
 

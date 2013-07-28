@@ -38,9 +38,9 @@
         <g:hiddenField name="version" value="${courseInstance?.version}"/>
         <g:render template="form"/>
         <fieldset class="buttons">
-            <g:actionSubmit class="save btn btn-primary" action="update"
+            <g:actionSubmit id="save" class="save btn btn-primary" action="update"
                             value="${message(code: 'default.button.update.label')}"/>
-            <g:actionSubmit class="delete btn" action="delete"
+            <g:actionSubmit id="delete" class="delete btn" action="delete"
                             value="${message(code: 'default.button.delete.label')}" formnovalidate=""
                             onclick="return confirm('${message(code: 'default.button.delete.confirm.message')}');"/>
         </fieldset>
