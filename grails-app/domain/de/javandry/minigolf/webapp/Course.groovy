@@ -14,4 +14,8 @@ class Course {
         name(nullable: false, blank: false)
         type(nullable: false)
     }
+
+    static void clear() {
+        Course.executeUpdate('delete from Course')
+    }
 }
