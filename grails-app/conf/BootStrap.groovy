@@ -1,3 +1,4 @@
+import de.javandry.minigolf.webapp.Course
 import de.javandry.minigolf.webapp.Role
 import de.javandry.minigolf.webapp.User
 import de.javandry.minigolf.webapp.UserRole
@@ -44,6 +45,15 @@ class BootStrap {
         new Ball(manufacturer: manufacturerBM, name: 'H5', size: Size.k, surface: Surface.l).save(failOnError: true)
         new Ball(manufacturer: manufacturerBM, name: 'B4', size: Size.k, surface: Surface.l).save(failOnError: true)
         new Ball(manufacturer: manufacturerReis, name: 'BO 1', size: Size.k, surface: Surface.l).save(failOnError: true)
+
+        new Course(name: "Köln Müngersdorf", type: Course.Type.ABT_1, address: "Aachener Str.703/Militärring, 50933 Köln").save(failOnError: true)
+        new Course(name: "Duisburg Huckingen", type: Course.Type.ABT_1, address: "Am Heidberg 20, 47259 Duisburg").save(failOnError: true)
+        new Course(name: "Büttgen", type: Course.Type.ABT_2, address: "Olympiastraße 1, 41564 Kaarst").save(failOnError: true)
+        new Course(name: "Düsseldorf Eller", type: Course.Type.ABT_2, address: "Krippstraße 3 / Ecke Vennhauser Allee, 40229 Düsseldorf").save(failOnError: true)
+        new Course(name: "Essen", type: Course.Type.ABT_3, address: "Hallostraße 50, 45141 Essen").save(failOnError: true)
+        new Course(name: "Hamm", type: Course.Type.ABT_3, address: "Ostenallee (Kurpark), 59071 Hamm").save(failOnError: true)
+        new Course(name: "Gummersbach Derschlag", type: Course.Type.ABT_4, address: "Klosterstraße 41, 51645 Gummersbach").save(failOnError: true)
+        new Course(name: "Castrop Goldschmiedingpark", type: Course.Type.ABT_4, address: "Dortmunder Str. 61, 44575 Castrop-Rauxel").save(failOnError: true)
     }
 
     def destroy = {
