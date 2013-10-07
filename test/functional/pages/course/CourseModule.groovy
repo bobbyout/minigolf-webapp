@@ -5,7 +5,7 @@ import geb.Module
 class CourseModule extends Module {
 
     static content = {
-        name { $("div", class: "media-heading").text()?.trim() }
+        name { $("h4", class: "media-heading").text()?.trim() }
         editButton { $("a", class: "editLink") }
     }
 }

@@ -10,11 +10,7 @@
 
 <body>
 
-<div class="span9">
-    <h1><g:message code="course.list.title"/></h1>
-</div>
-
-<div class="span3">
+<div class="span1">
     <div class="sidebar-nav">
         <ul class="nav nav-pills pull-right">
             <li class="active">
@@ -31,7 +27,7 @@
     </div>
 </div>
 
-<div class="span9">
+<div class="span11">
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
@@ -55,10 +51,10 @@
                 </div>
 
                 <div class="media-body">
-                    <div class="media-heading">
+                    <h4 class="media-heading">
                         <g:link action="edit" class="editLink"
                                 id="${courseInstance.id}">${fieldValue(bean: courseInstance, field: "name")}</g:link>
-                    </div>
+                    </h4>
                     <address>${courseInstance.address}</address>
                 </div>
             </li>
