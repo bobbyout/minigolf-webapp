@@ -18,6 +18,12 @@ class CourseListPage extends AbstractCoursePage {
         courses.find { it.name == course.name };
     }
 
+    boolean shows(def args) {
+        def course = courses.find { it.name == args.name }
+        assert course.address == args.address
+        true
+    }
+
     void createNew() {
         createButton.click()
     }

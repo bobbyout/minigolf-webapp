@@ -3,9 +3,7 @@ package specs.course
 import de.javandry.minigolf.webapp.Course
 import pages.course.CourseEditPage
 import pages.course.CourseListPage
-import pages.course.CourseShowPage
 import specs.LoggedInAsUserSpec
-
 
 class EditCourseSpec extends LoggedInAsUserSpec {
 
@@ -43,11 +41,11 @@ class EditCourseSpec extends LoggedInAsUserSpec {
         saveButton.click()
 
         then:
-        at CourseShowPage
+        at CourseListPage
         shows(name: oldCourseName, type: oldCourseType, address: newCourseAddress)
     }
 
-    /*
+
     def "edit name"() {
         given:
         to CourseListPage
@@ -64,8 +62,8 @@ class EditCourseSpec extends LoggedInAsUserSpec {
         saveButton.click()
 
         then:
-        at CourseShowPage
+        at CourseListPage
         shows(name: newCourseName, type: oldCourseType, address: oldCourseAddress)
     }
-    */
+
 }
