@@ -27,7 +27,7 @@ class CourseController {
         }
 
         flash.message = message(code: 'default.created.message', args: [message(code: 'course.label', default: 'Course'), courseInstance.id])
-        redirect(action: "show", id: courseInstance.id)
+        redirect(action: "list")
     }
 
     def show(Long id) {
