@@ -12,16 +12,33 @@ class CourseListPage extends AbstractCoursePage {
         createButton { $("a", id: "create") }
 
         courses { moduleList CourseModule, $("li.media") }
+
+        resourceBundle {
+            ResourceBundle bundle = new PropertyResourceBundle(new InputStreamReader(new FileInputStream('./grails-app/i18n/messages.properties'), "UTF-8"))
+            bundle
+        }
     }
 
-    boolean shows(Course course) {
-        courses.find { it.name == course.name };
-    }
+    boolean shows(Course expectedCourse) {
+        def actualCourse = courses.find { it.name == expectedCourse.name };
 
-    boolean shows(def args) {
-        def course = courses.find { it.name == args.name }
-        assert course.address == args.address
+        String expectedCourseType = lookupCourseTypeMessage(expectedCourse)
+        assert actualCourse.type == expectedCourseType
+        assert actualCourse.address == expectedCourse.address
         true
+    }
+
+    boolean shows(def expectedCourse) {
+        def actualCourse = courses.find { it.name == expectedCourse.name }
+
+        String expectedCourseType = lookupCourseTypeMessage(expectedCourse)
+        assert actualCourse.type == expectedCourseType
+        assert actualCourse.address == expectedCourse.address
+        true
+    }
+
+    private String lookupCourseTypeMessage(expectedCourse) {
+        resourceBundle.getString("course.type.option." + expectedCourse.type.name())
     }
 
     void createNew() {

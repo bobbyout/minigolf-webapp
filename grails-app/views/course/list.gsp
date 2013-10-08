@@ -6,24 +6,32 @@
     <meta name="layout" content="main">
     <g:set var="entityName" value="${message(code: 'course.label')}"/>
     <title><g:message code="course.list.title"/></title>
+
+    <style type="text/css">
+    span.course-name {
+        font-size: large;
+        font-weight: bold;
+    }
+
+    span.course-type {
+        font-size: small;
+        font-style: italic;
+    }
+
+    address {
+
+    }
+    </style>
 </head>
 
 <body>
 
 <div class="span1">
     <div class="sidebar-nav">
-        <ul class="nav nav-pills pull-right">
-            <li class="active">
-                <g:link action="list" elementId="list">
-                    <g:message code="default.list.label" args="[entityName]"/>
-                </g:link>
-            </li>
-            <li>
-                <g:link action="create" elementId="create">
-                    <g:message code="default.new.label" args="[entityName]"/>
-                </g:link>
-            </li>
-        </ul>
+        <g:link action="create" elementId="create">
+            <g:img dir="images" file="edit-add-2.png"
+                   alt="${g.message(code: "default.create.label", args: [entityName])}"/>
+        </g:link>
     </div>
 </div>
 
@@ -51,10 +59,12 @@
                 </div>
 
                 <div class="media-body">
-                    <h4 class="media-heading">
+                    <span class="course-name">
                         <g:link action="edit" class="editLink"
                                 id="${courseInstance.id}">${fieldValue(bean: courseInstance, field: "name")}</g:link>
-                    </h4>
+                    </span>
+                    <span class="course-type"><g:message
+                            code="course.type.option.${courseInstance.type.name()}"/></span>
                     <address>${courseInstance.address}</address>
                 </div>
             </li>
