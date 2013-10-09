@@ -4,7 +4,7 @@ import geb.Page
 
 class BallCreatePage extends Page {
 
-    static at = { title == "Create Ball" }
+    static at = { title.startsWith "Create Ball" }
 
     static content = {
         errors { $('ul.errors') }
@@ -15,7 +15,7 @@ class BallCreatePage extends Page {
         speed { $('input', id: 'speed') }
         shore { $('input', id: 'shore') }
         weight { $('input', id: 'weight') }
-        createButton(to: BallShowPage) { $('input', id: 'create') }
+        createButton { $('input', id: 'create') }
     }
 
     def errorForField(String field) {

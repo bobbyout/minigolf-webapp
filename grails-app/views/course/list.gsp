@@ -60,11 +60,13 @@
 
                 <div class="media-body">
                     <span class="course-name">
-                        <g:link action="edit" class="editLink"
-                                id="${courseInstance.id}">${fieldValue(bean: courseInstance, field: "name")}</g:link>
+                        <g:link action="edit" class="editLink" id="${courseInstance.id}">
+                            ${fieldValue(bean: courseInstance, field: "name")}
+                        </g:link>
                     </span>
-                    <span class="course-type"><g:message
-                            code="course.type.option.${courseInstance.type.name()}"/></span>
+                    <span class="course-type">
+                        <g:message code="course.type.option.${courseInstance.type.name()}"/>
+                    </span>
                     <address>${courseInstance.address}</address>
                 </div>
             </li>

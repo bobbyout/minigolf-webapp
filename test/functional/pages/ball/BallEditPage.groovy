@@ -4,7 +4,7 @@ import geb.Page
 
 class BallEditPage extends Page {
 
-    static at = { title == "Edit Ball" }
+    static at = { title.startsWith "Edit Ball" }
 
     static content = {
         errors { $('ul.errors') }
@@ -15,7 +15,7 @@ class BallEditPage extends Page {
         speed { $('input', id: 'speed') }
         shore { $('input', id: 'shore') }
         weight { $('input', id: 'weight') }
-        saveButton(to: BallShowPage) { $('input', class: 'save') }
+        updateButton { $('input', id: 'update') }
     }
 
 

@@ -4,6 +4,7 @@ import de.javandry.minigolf.webapp.balls.Ball
 import de.javandry.minigolf.webapp.balls.Manufacturer
 import de.javandry.minigolf.webapp.balls.Size
 import de.javandry.minigolf.webapp.balls.Surface
+import pages.ball.BallCreatePage
 import pages.ball.BallListPage
 import specs.LoggedInAsUserSpec
 
@@ -15,7 +16,7 @@ class CreateBallSpec extends LoggedInAsUserSpec {
         createButton.click()
 
         expect:
-        at BallListPage
+        at BallCreatePage
 
         when:
         manufacturer.value("3D")
@@ -25,7 +26,7 @@ class CreateBallSpec extends LoggedInAsUserSpec {
         speed.value("24")
         shore.value("50")
         weight.value("47")
-        saveButton.click()
+        createButton.click()
 
         then:
         at BallListPage
@@ -39,11 +40,11 @@ class CreateBallSpec extends LoggedInAsUserSpec {
         createButton.click()
 
         expect:
-        at BallListPage
+        at BallCreatePage
 
         when:
         name.value("type 543")
-        saveButton.click()
+        createButton.click()
 
         then:
         at BallListPage
@@ -56,13 +57,13 @@ class CreateBallSpec extends LoggedInAsUserSpec {
         createButton.click()
 
         expect:
-        at BallListPage
+        at BallCreatePage
 
         when:
-        saveButton.click()
+        createButton.click()
 
         then:
-        at BallListPage
+        at BallCreatePage
         errorForField("name") != null
         errorForField("name") == "Please enter a name for your ball"
     }

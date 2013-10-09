@@ -4,6 +4,7 @@ import de.javandry.minigolf.webapp.balls.Ball
 import de.javandry.minigolf.webapp.balls.Manufacturer
 import de.javandry.minigolf.webapp.balls.Size
 import de.javandry.minigolf.webapp.balls.Surface
+import pages.ball.BallEditPage
 import pages.ball.BallListPage
 import specs.LoggedInAsUserSpec
 
@@ -23,7 +24,7 @@ class EditBallSpec extends LoggedInAsUserSpec {
         editButton.click()
 
         expect:
-        at BallListPage
+        at BallEditPage
 
         when:
         manufacturer.value("Beck & Meth")

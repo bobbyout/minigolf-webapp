@@ -11,21 +11,9 @@ class BallListPage extends Page {
     static at = { title.startsWith "Balls" }
 
     static content = {
-        ballRows { moduleList BallRow, $("table tbody tr") }
+        ballRows { moduleList BallRow, $("li.ball") }
 
-        createButton { $('a', class: 'create') }
-        saveButton { $('input', id: 'save') }
-        updateButton { $('input', id: 'update') }
-
-        manufacturer { $('select', id: 'manufacturer') }
-        name { $('input', id: 'name') }
-        size { $('select', id: 'size') }
-        surface { $('select', id: 'surface') }
-        speed { $('input', id: 'speed') }
-        shore { $('input', id: 'shore') }
-        weight { $('input', id: 'weight') }
-
-        errors { $('ul.errors') }
+        createButton { $("a", id: "create") }
     }
 
     def contains(List<Ball> balls) {
@@ -34,10 +22,6 @@ class BallListPage extends Page {
 
     def contains(Ball ball) {
         ballRows.find { it.name == ball.name };
-    }
-
-    def errorForField(String field) {
-        return errors.find("li", "data-field-id": field).text()
     }
 
     def editButtonForBall(String name) {

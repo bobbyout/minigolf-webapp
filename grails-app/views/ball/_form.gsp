@@ -1,65 +1,85 @@
 <%@ page import="de.javandry.minigolf.webapp.balls.Ball" %>
 
-
-
-<div class="fieldcontain ${hasErrors(bean: ballInstance, field: 'manufacturer', 'error')} ">
-    <label for="manufacturer">
-        <g:message code="ball.manufacturer.label" default="Manufacturer"/>
-
+<div class="control-group ${hasErrors(bean: ballInstance, field: 'manufacturer', 'error')}">
+    <label class="control-label" for="manufacturer">
+        <g:message code="ball.manufacturer.label"/>
     </label>
-    <g:select id="manufacturer" name="manufacturer.id" from="${de.javandry.minigolf.webapp.balls.Manufacturer.list()}"
-              optionKey="id" value="${ballInstance?.manufacturer?.id}" class="many-to-one" noSelection="['null': '']"/>
+
+    <div class="controls">
+        <g:select id="manufacturer" name="manufacturer.id"
+                  from="${de.javandry.minigolf.webapp.balls.Manufacturer.list()}"
+                  optionKey="id"
+                  value="${ballInstance?.manufacturer?.id}"
+                  noSelection="['null': '']"/>
+    </div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: ballInstance, field: 'name', 'error')} ">
-    <label for="name">
-        <g:message code="ball.name.label" default="Name"/>
-
+<div class="control-group required ${hasErrors(bean: ballInstance, field: 'name', 'error')} ">
+    <label class="control-label" for="name">
+        <g:message code="ball.name.label"/>
+        <span class="required-indicator">*</span>
     </label>
-    <g:textField name="name" value="${ballInstance?.name}"/>
+
+    <div class="controls">
+        <g:textField name="name" value="${ballInstance?.name}"/>
+    </div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: ballInstance, field: 'size', 'error')} ">
-    <label for="size">
-        <g:message code="ball.size.label" default="Size"/>
-
+<div class="control-group ${hasErrors(bean: ballInstance, field: 'size', 'error')} ">
+    <label class="control-label" for="size">
+        <g:message code="ball.size.label"/>
     </label>
-    <g:select name="size" from="${de.javandry.minigolf.webapp.balls.Size?.values()}"
-              keys="${de.javandry.minigolf.webapp.balls.Size.values()*.name()}" value="${ballInstance?.size?.name()}"
-              noSelection="['': '']"/>
+
+    <div class="controls">
+        <g:select name="size"
+                  from="${de.javandry.minigolf.webapp.balls.Size?.values()}"
+                  keys="${de.javandry.minigolf.webapp.balls.Size.values()*.name()}"
+                  value="${ballInstance?.size?.name()}"
+                  noSelection="['': '']"/>
+    </div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: ballInstance, field: 'surface', 'error')} ">
-    <label for="surface">
-        <g:message code="ball.surface.label" default="Surface"/>
-
+<div class="control-group ${hasErrors(bean: ballInstance, field: 'surface', 'error')} ">
+    <label class="control-label" for="surface">
+        <g:message code="ball.surface.label"/>
     </label>
-    <g:select name="surface" from="${de.javandry.minigolf.webapp.balls.Surface?.values()}"
-              keys="${de.javandry.minigolf.webapp.balls.Surface.values()*.name()}"
-              value="${ballInstance?.surface?.name()}" noSelection="['': '']"/>
+
+    <div class="controls">
+        <g:select name="surface"
+                  from="${de.javandry.minigolf.webapp.balls.Surface?.values()}"
+                  keys="${de.javandry.minigolf.webapp.balls.Surface.values()*.name()}"
+                  value="${ballInstance?.surface?.name()}"
+                  noSelection="['': '']"/>
+    </div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: ballInstance, field: 'speed', 'error')} ">
-    <label for="speed">
-        <g:message code="ball.speed.label" default="Speed"/>
-
+<div class="control-group ${hasErrors(bean: ballInstance, field: 'speed', 'error')} ">
+    <label class="control-label" for="speed">
+        <g:message code="ball.speed.label"/>
     </label>
-    <g:field name="speed" value="${fieldValue(bean: ballInstance, field: 'speed')}"/>
+
+    <div class="controls">
+        <g:field name="speed" value="${fieldValue(bean: ballInstance, field: 'speed')}"/>
+    </div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: ballInstance, field: 'shore', 'error')} ">
-    <label for="shore">
-        <g:message code="ball.shore.label" default="Shore"/>
-
+<div class="control-group ${hasErrors(bean: ballInstance, field: 'shore', 'error')} ">
+    <label class="control-label" for="shore">
+        <g:message code="ball.shore.label"/>
     </label>
-    <g:field name="shore" value="${fieldValue(bean: ballInstance, field: 'shore')}"/>
+
+    <div class="controls">
+        <g:field name="shore" value="${fieldValue(bean: ballInstance, field: 'shore')}"/>
+    </div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: ballInstance, field: 'weight', 'error')} ">
-    <label for="weight">
-        <g:message code="ball.weight.label" default="Weight"/>
-
+<div class="control-group ${hasErrors(bean: ballInstance, field: 'weight', 'error')} ">
+    <label class="control-label" for="weight">
+        <g:message code="ball.weight.label"/>
     </label>
-    <g:field name="weight" value="${fieldValue(bean: ballInstance, field: 'weight')}"/>
+
+    <div class="controls">
+        <g:field name="weight" value="${fieldValue(bean: ballInstance, field: 'weight')}"/>
+    </div>
 </div>
 

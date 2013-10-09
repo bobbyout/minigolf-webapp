@@ -29,14 +29,14 @@ class BallControllerTests {
         def model = controller.create()
 
         assert model.ballInstance != null
-        assert view == '/ball/list'
+        assertNull view // default == 'create'
     }
 
     void testSave() {
         controller.save()
 
         assert model.ballInstance != null
-        assert view == '/ball/list'
+        assert view == '/ball/create'
 
         response.reset()
 
@@ -82,7 +82,7 @@ class BallControllerTests {
         def model = controller.edit()
 
         assert model.ballInstance == ball
-        assert view == '/ball/list'
+        assertNull view // default == 'edit'
     }
 
     void testUpdate() {
@@ -104,7 +104,7 @@ class BallControllerTests {
 
         controller.update()
 
-        assert view == "/ball/list"
+        assert view == "/ball/edit"
         assert model.ballInstance != null
 
         ball.clearErrors()

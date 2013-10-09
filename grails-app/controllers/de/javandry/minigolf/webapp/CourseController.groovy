@@ -96,7 +96,7 @@ class CourseController {
         }
         catch (DataIntegrityViolationException e) {
             flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'course.label', default: 'Course'), id])
-            redirect(action: "show", id: id)
+            redirect(action: "edit", id: id)
         }
     }
 }

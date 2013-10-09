@@ -18,16 +18,13 @@ class BallController {
     }
 
     def create() {
-        def model = [ballInstanceList: Ball.list(), ballInstanceTotal: Ball.count(), ballInstance: new Ball(params), newBall: true]
-        render(view: "list", model: model)
-        return model
+        [ballInstance: new Ball(params)]
     }
 
     def save() {
         def ballInstance = new Ball(params)
         if (!ballInstance.save(flush: true)) {
-            def model = [ballInstanceList: Ball.list(), ballInstanceTotal: Ball.count(), ballInstance: ballInstance]
-            render(view: "list", model: model)
+            render(view: "create", model: [ballInstance: ballInstance])
             return
         }
 
@@ -54,9 +51,7 @@ class BallController {
             return
         }
 
-        def model = [ballInstanceList: Ball.list(), ballInstanceTotal: Ball.count(), ballInstance: ballInstance]
-        render(view: "list", model: model)
-        return model
+        [ballInstance: ballInstance]
     }
 
     def update(Long id, Long version) {
@@ -80,7 +75,7 @@ class BallController {
         ballInstance.properties = params
 
         if (!ballInstance.save(flush: true)) {
-            render(view: "list", model: [ballInstance: ballInstance])
+            render(view: "edit", model: [ballInstance: ballInstance])
             return
         }
 
@@ -102,7 +97,7 @@ class BallController {
             redirect(action: "list")
         } catch (DataIntegrityViolationException ignored) {
             flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'ball.label'), id])
-            redirect(action: "list")
+            redirect(action: "edit", id: id)
         }
     }
 }
