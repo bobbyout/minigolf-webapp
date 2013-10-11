@@ -2,7 +2,6 @@ package pages.ball
 
 import de.javandry.minigolf.webapp.balls.Ball
 import geb.Page
-import modules.balls.BallRow
 import pages.IndexPage
 
 class BallListPage extends Page {
@@ -11,7 +10,7 @@ class BallListPage extends Page {
     static at = { title.startsWith "Balls" }
 
     static content = {
-        ballRows { moduleList BallRow, $("li.ball") }
+        ballRows { moduleList BallModule, $("li.ball") }
 
         createButton { $("a", id: "create") }
     }

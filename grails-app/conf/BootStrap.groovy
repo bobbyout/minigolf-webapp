@@ -40,11 +40,11 @@ class BootStrap {
         def manufacturerBM = new Manufacturer(shortName: "B&M", longName: "Beck & Meth").save(failOnError: true)
         def manufacturerReis = new Manufacturer(shortName: "Reis.", longName: "Reisinger").save(failOnError: true)
 
-        new Ball(manufacturer: manufacturer3D, name: 'type 543', size: Size.m, surface: Surface.l).save(failOnError: true)
-        new Ball(manufacturer: manufacturer3D, name: '50 Jahre 1. MGC Köln', size: Size.m, surface: Surface.x).save(failOnError: true)
-        new Ball(manufacturer: manufacturerBM, name: 'H5', size: Size.k, surface: Surface.l).save(failOnError: true)
-        new Ball(manufacturer: manufacturerBM, name: 'B4', size: Size.k, surface: Surface.l).save(failOnError: true)
-        new Ball(manufacturer: manufacturerReis, name: 'BO 1', size: Size.k, surface: Surface.l).save(failOnError: true)
+        new Ball(manufacturer: manufacturer3D, name: 'type 543', size: Size.m, surface: Surface.l, shore: 60, speed: 45, weight: 50).save(failOnError: true)
+        new Ball(manufacturer: manufacturer3D, name: '50 Jahre 1. MGC Köln', size: Size.m, surface: Surface.x, shore: 55, speed: 33, weight: 55).save(failOnError: true)
+        new Ball(manufacturer: manufacturerBM, name: 'H5', size: Size.k, surface: Surface.l, shore: 45, speed: 5.5, weight: 35).save(failOnError: true)
+        new Ball(manufacturer: manufacturerBM, name: 'B4', size: Size.k, surface: Surface.l, shore: 64, speed: 48, weight: 39).save(failOnError: true)
+        new Ball(manufacturer: manufacturerReis, name: 'BO 1', size: Size.k, surface: Surface.l, shore: 45, speed: 45, weight: 60).save(failOnError: true)
 
         new Course(name: "Köln Müngersdorf", type: Course.Type.ABT_1, address: "Aachener Str.703/Militärring, 50933 Köln").save(failOnError: true)
         new Course(name: "Duisburg Huckingen", type: Course.Type.ABT_1, address: "Am Heidberg 20, 47259 Duisburg").save(failOnError: true)

@@ -1,8 +1,8 @@
-package modules.balls
+package pages.ball
 
 import geb.Module
 
-class BallRow extends Module {
+class BallModule extends Module {
     static content = {
         manufacturer { $("span", class: "manufacturer").text()?.trim() }
         name { $("span", class: "name").text()?.trim() }
@@ -11,6 +11,6 @@ class BallRow extends Module {
         speed { $("span", class: "speed").text()?.trim() }
         shore { $("span", class: "shore").text()?.trim() }
         weight { $("span", class: "weight").text()?.trim() }
-        editButton { $("a", class: "editLink") }
+        editButton { $("a", class: "edit") }
     }
 }
