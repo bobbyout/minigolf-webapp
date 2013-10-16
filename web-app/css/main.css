@@ -3,6 +3,10 @@ html, body, div, span, a, p, label, input, select {
     font-size: 14px;
 }
 
+html, body {
+    height: 100%;
+}
+
 a {
     color: #00008B;
     text-decoration: none;
@@ -130,7 +134,7 @@ img.logo {
 
 #page-menu a#create {
     background: url(../images/create.png) no-repeat 0px -2px;
-    padding-left: 24px;
+    padding-left: 26px;
 }
 
 /* end page-menu ---------------------------------------------------------- */
@@ -139,9 +143,11 @@ img.logo {
 
 #content {
     width: 837px;
+    min-height: 100%;
+    height: auto !important;
     height: 100%;
-    margin: 5px;
     float: left;
+    margin-bottom: 32px;
 }
 
 /* end content ------------------------------------------------------------ */
@@ -198,9 +204,28 @@ img.item-image {
 
 /* begin form ------------------------------------------------------------- */
 
-.form-line {
+form {
+    display: block;
+}
+
+fieldset {
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+div.form-line {
     margin-top: 7px;
-    margin-bottom: 7px;
+    width: 100%;
+}
+
+div.form-line:first-child {
+    margin-top: 0px;
+}
+
+div.input-field {
+    display: inline-block;
 }
 
 label {
@@ -208,6 +233,12 @@ label {
 }
 
 label.required {
+}
+
+textarea, input, select {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 textarea,
@@ -241,21 +272,44 @@ select.error {
 
 input[type="text"],
 input[type="number"] {
-    height: 19px;
-    padding: 4px 7px;
+    height: 26px;
+    padding: 4px 6px;
 }
 
 select {
-    height: 30px;
+    height: 26px;
     padding: 3px;
     outline: none;
 }
 
 /* end form --------------------------------------------------------------- */
 
+/* begin errors & messages ------------------------------------------------ */
+
+ul.errors {
+    list-style: none;
+    background-color: #f8b9b7;
+    border-radius: 5px;
+    color: #802420;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+ul.errors > li {
+    margin-bottom: 2px;
+}
+
+div.message {
+    background-color: #62c462;
+    border-radius: 5px;
+}
+
+/* end errors & messages -------------------------------------------------- */
+
 /* begin buttons ---------------------------------------------------------- */
 
-fieldset.buttons {
+form > div.buttons {
+    width: 100%;
     text-align: right;
 }
 
@@ -377,9 +431,11 @@ fieldset.buttons {
 /* begin footer ----------------------------------------------------------- */
 
 footer {
+    display: block;
     width: 1000px;
+    height: 18px; /* '.push' must be the same height as 'footer' */
     padding: 7px;
-    border-top: 1px solid gray;
+    border-top: 1px solid #cccccc;
     position: absolute;
     bottom: 0;
 }
