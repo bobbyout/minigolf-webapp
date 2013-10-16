@@ -5,50 +5,6 @@
     <meta name="layout" content="new-main">
     <g:set var="entityName" value="${message(code: 'ball.label')}"/>
     <title><g:message code="ball.list.title"/></title>
-
-    <style type="text/css">
-    ul.list {
-        width: 100%;
-        list-style: none;
-    }
-
-    li.item {
-        height: 64px;
-        padding: 5px;
-        margin-bottom: 3px;
-        border: 1px solid gray;
-        border-radius: 5px;
-    }
-
-    img.item-image {
-        width: 64px;
-        height: 64px;
-        float: left;
-        clear: left;
-        margin-right: 10px;
-    }
-
-    .item-title {
-        font-size: 16px;
-        font-weight: bold;
-        padding: 5px 0;
-    }
-
-    .item-title a {
-        text-decoration: none;
-    }
-
-    .item-properties {
-    }
-
-    .button.item-edit, .button.item-delete {
-        width: 22px;
-        height: 22px;
-        float: right;
-        margin-top: 5px;
-        margin-right: 5px;
-    }
-    </style>
 </head>
 
 <body>

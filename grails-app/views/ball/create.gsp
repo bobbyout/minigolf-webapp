@@ -2,15 +2,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="layout" content="main">
+    <meta name="layout" content="new-main">
     <g:set var="entityName" value="${message(code: 'ball.label', default: 'Ball')}"/>
     <title><g:message code="default.create.label" args="[entityName]"/></title>
+
+    <style type="text/css">
+    fieldset {
+        width: 445px;
+    }
+
+    div.form-line {
+        width: 445px;
+    }
+
+    label {
+        width: 120px;
+    }
+
+    input[type="text"] {
+        width: 300px;
+    }
+
+    input[type="number"] {
+        width: 50px;
+    }
+
+    select {
+        width: 316px;
+    }
+    </style>
 </head>
 
 <body>
-<div class="span4">
-    <h1><g:message code="default.create.label" args="[entityName]"/></h1>
 
+<div id="page-menu" role="navigation">
+</div>
+
+<div id="content" role="main">
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
@@ -24,12 +52,12 @@
         </ul>
     </g:hasErrors>
 
-    <g:form action="save" class="form-horizontal">
+    <g:form action="save" class="form">
         <g:render template="form"/>
         <fieldset class="buttons">
-            <g:link name="cancel" class="save btn"
+            <g:link name="cancel" class="button"
                     action="list"><g:message code="default.button.cancel.label"/></g:link>
-            <g:submitButton name="create" class="save btn btn-primary"
+            <g:submitButton name="create" class="button default"
                             value="${message(code: 'default.button.create.label')}"/>
         </fieldset>
     </g:form>
