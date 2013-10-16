@@ -3,10 +3,6 @@ html, body, div, span, a, p, label, input, select {
     font-size: 14px;
 }
 
-html, body {
-    height: 100%;
-}
-
 a {
     color: #00008B;
     text-decoration: none;
@@ -14,43 +10,20 @@ a {
 
 /* begin header ------------------------------------------------------------- */
 
-#header {
-    height: 136px;
-    width: 1000px;
-    margin: 5px;
-    position: absolute;
-    top: 0;
-}
-
 #logo-container {
-    height: 130px;
-    width: 150px;
     border: 1px solid gray;
     border-radius: 10px;
     box-shadow: 5px 5px 5px #888;
-    position: absolute;
-    top: 0px;
-    left: 0px;
 }
 
 #title-container {
-    height: 50px;
-    width: 848px;
     border-top: 1px solid gray;
     border-right: 1px solid gray;
     border-bottom: 1px solid gray;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     box-shadow: 5px 5px 5px #888;
-    position: absolute;
-    top: 20px;
-    right: 0px;
     z-index: -1;
-}
-
-img.logo {
-    width: 145px;
-    margin: 20px 2px 16px;
 }
 
 .app-title {
@@ -84,11 +57,6 @@ img.logo {
 }
 
 #nav-bar {
-    height: 18px;
-    width: 831px;
-    position: absolute;
-    top: 80px;
-    left: 160px;
     list-style: none;
     padding: 10px;
 }
@@ -103,7 +71,7 @@ img.logo {
 }
 
 #nav-bar > li.active {
-    color: lightgray;
+    color: #cccccc;
 }
 
 #nav-bar > li > a {
@@ -116,15 +84,8 @@ img.logo {
 
 /* begin page-menu -------------------------------------------------------- */
 
-#page-menu {
-    position: absolute;
-    top: 140px;
-    left: 5px;
-    width: 133px;
-    padding: 10px;
-}
-
 #page-menu > ul {
+    padding: 10px;
     list-style: none;
 }
 
@@ -140,20 +101,6 @@ img.logo {
 }
 
 /* end page-menu ---------------------------------------------------------- */
-
-/* begin content ---------------------------------------------------------- */
-
-#content {
-    position: absolute;
-    top: 147px;
-    left: 157px;
-    bottom: 32px;
-    width: 848px;
-    overflow: hidden;
-    overflow-y: auto;
-}
-
-/* end content ------------------------------------------------------------ */
 
 /* begin list ------------------------------------------------------------- */
 
@@ -434,13 +381,8 @@ form > div.buttons {
 /* begin footer ----------------------------------------------------------- */
 
 footer {
-    display: block;
-    width: 1000px;
-    height: 18px;
-    padding: 7px;
     border-top: 1px solid #cccccc;
-    position: absolute;
-    bottom: 0;
+    padding: 7px 0;
 }
 
 /* end footer ------------------------------------------------------------- */

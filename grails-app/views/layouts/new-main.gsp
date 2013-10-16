@@ -12,6 +12,70 @@
 
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'reset.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
+    <style type="text/css">
+    #header {
+        height: 136px;
+        width: 1000px;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+    }
+
+    #logo-container {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 130px;
+        width: 150px;
+    }
+
+    img.logo {
+        width: 145px;
+        margin: 20px 2px 16px;
+    }
+
+    #title-container {
+        position: absolute;
+        top: 20px;
+        right: 0px;
+        height: 50px;
+        width: 848px;
+    }
+
+    #nav-bar {
+        position: absolute;
+        top: 80px;
+        left: 160px;
+        height: 18px;
+        width: 831px;
+    }
+
+    #page-menu {
+        position: absolute;
+        top: 140px;
+        left: 5px;
+        width: 133px;
+    }
+
+    #content {
+        position: absolute;
+        top: 147px;
+        left: 157px;
+        bottom: 32px;
+        width: 848px;
+        overflow: hidden;
+        overflow-y: auto;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        left: 5px;
+        display: block;
+        width: 1000px;
+        height: 18px;
+    }
+    </style>
 </head>
 
 <body>
