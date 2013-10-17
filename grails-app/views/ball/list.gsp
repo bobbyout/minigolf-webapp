@@ -55,12 +55,10 @@
                 </g:form>
 
                 <div class="item-title ball">
-                    <g:link action="edit" class="edit" id="${ballInstance.id}">
-                        <span class="manufacturer">${fieldValue(bean: ballInstance, field: "manufacturer.shortName")}</span>
-                        <span class="name">${fieldValue(bean: ballInstance, field: "name")}</span>
-                        <span class="size">${fieldValue(bean: ballInstance, field: "size")}</span><span
-                            class="surface">${fieldValue(bean: ballInstance, field: "surface")}</span>
-                    </g:link>
+                    <span class="manufacturer">${fieldValue(bean: ballInstance, field: "manufacturer.shortName")}</span>
+                    <span class="name">${fieldValue(bean: ballInstance, field: "name")}</span>
+                    <span class="size">${fieldValue(bean: ballInstance, field: "size")}</span><span
+                        class="surface">${fieldValue(bean: ballInstance, field: "surface")}</span>
                 </div>
 
                 <div class="item-properties ball">
