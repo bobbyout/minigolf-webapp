@@ -97,14 +97,14 @@
                 <sec:username/>
             </span>
             <sec:ifLoggedIn>
-                <g:link controller="logout" action="index" elementId="logout" class="logout-link">
+                <g:link controller="logout" elementId="logout" class="logout-link">
                     <g:message code="logout.button"/>
                 </g:link>
             </sec:ifLoggedIn>
             <sec:ifNotLoggedIn>
                 <g:link controller="login" action="auth" elementId="login" class="login-link">
                     <g:message code="login.button"/>
-                </g:link><
+                </g:link>
             </sec:ifNotLoggedIn>
         </span>
     </div>

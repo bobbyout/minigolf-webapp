@@ -28,9 +28,6 @@
 
 <body>
 
-<div id="page-menu" role="navigation">
-</div>
-
 <div id="content" role="main">
 
     <g:form action="save" class="form">
@@ -40,7 +37,7 @@
         </g:if>
 
         <g:hasErrors bean="${ballInstance}">
-            <ul class="errors" role="alert">
+            <ul class="messages error" role="alert">
                 <g:eachError bean="${ballInstance}" var="error">
                     <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message
                             error="${error}"/></li>

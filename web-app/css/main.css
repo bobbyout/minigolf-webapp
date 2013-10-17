@@ -197,6 +197,7 @@ textarea, input, select {
 textarea,
 input[type="text"],
 input[type="number"],
+input[type="password"],
 select {
     background-color: white;
     border: 1px solid #cccccc;
@@ -208,6 +209,7 @@ select {
 textarea:focus, textarea:hover,
 input[type="text"]:focus, input[type="text"]:hover,
 input[type="number"]:focus, input[type="number"]:hover,
+input[type="password"]:focus, input[type="password"]:hover,
 select:focus, select:hover {
     border-color: rgba(82, 168, 236, 0.80);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
@@ -217,6 +219,7 @@ select:focus, select:hover {
 textarea.error,
 input[type="text"].error,
 input[type="number"].error,
+input[type="password"].error,
 select.error {
     border-color: rgba(255, 69, 72, 0.80);
     box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.075), 0 0 8px rgba(255, 69, 72, 0.6);
@@ -224,7 +227,8 @@ select.error {
 }
 
 input[type="text"],
-input[type="number"] {
+input[type="number"],
+input[type="password"] {
     height: 26px;
     padding: 4px 6px;
 }
@@ -239,25 +243,22 @@ select {
 
 /* begin errors & messages ------------------------------------------------ */
 
-ul.errors {
+ul.messages, div.message {
     list-style: none;
-    background-color: #f8b9b7;
     border-radius: 5px;
-    color: #802420;
     padding: 10px;
     margin-bottom: 5px;
+    background-color: #7aba7b;
+    color: #344804;
 }
 
-ul.errors > li {
+ul.messages > li {
     margin-bottom: 2px;
 }
 
-div.message {
-    background-color: #7aba7b;
-    border-radius: 5px;
-    color: #344804;
-    padding: 10px;
-    margin-bottom: 5px;
+.message.error, .messages.error {
+    background-color: #f8b9b7;
+    color: #802420;
 }
 
 /* end errors & messages -------------------------------------------------- */

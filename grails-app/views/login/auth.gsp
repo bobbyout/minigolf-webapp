@@ -1,51 +1,76 @@
 <html>
 <head>
-    <meta name="layout" content="main"/>
-    <title><g:message code="springSecurity.login.title"/></title>
+    <meta name="layout" content="new-main"/>
+    <title><g:message code="app.login.title"/></title>
+
+    <style type="text/css">
+    form {
+        width: 400px;
+        text-align: center;
+    }
+
+    label {
+        width: 100px;
+    }
+
+    .input-field.checkbox {
+        text-align: left;
+        margin-left: 100px;
+    }
+
+    label.checkbox {
+        width: 280px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 280px;
+    }
+    </style>
 </head>
 
 <body>
-<div id="login">
-    <h3><g:message code="springSecurity.login.header"/></h3>
+<div id="content" role="main">
 
-    <g:if test="${flash.message}">
-        <div class="alert alert-error">${flash.message}</div>
-    </g:if>
+    <form action="${postUrl}" method="POST" id="loginForm" class="form">
 
-    <form action="${postUrl}" method="POST" id="loginForm" class="form-horizontal">
-        <div class="control-group">
-            <label class="control-label" for="username"><g:message code="springSecurity.login.username.label"/></label>
+        <g:if test="${flash.message}">
+            <div class="message error">${flash.message}</div>
+        </g:if>
 
-            <div class="controls">
-                <input type="text" name="j_username" id="username"
-                       placeholder="${message(code: 'springSecurity.login.username.label')}"/>
+        <fieldset>
+            <div class="form-line">
+                <label for="username">${g.message(code: 'login.username.label')}</label>
+
+                <div class="input-field">
+                    <input type="text" name="j_username" id="username"
+                           placeholder="${message(code: 'login.username.label')}"/>
+                </div>
             </div>
-        </div>
 
-        <div class="control-group">
-            <label class="control-label" for="password"><g:message code="springSecurity.login.password.label"/></label>
+            <div class="form-line">
+                <label for="username">${g.message(code: 'login.password.label')}</label>
 
-            <div class="controls">
-                <input type="password" name="j_password" id="password"
-                       placeholder="${message(code: 'springSecurity.login.password.label')}"/>
+                <div class="input-field">
+                    <input type="password" name="j_password" id="password"
+                           placeholder="${message(code: 'login.password.label')}"/>
+                </div>
             </div>
-        </div>
 
-        <div class="control-group">
-            <div class="controls">
-                <label for="remember_me" class="checkbox">
-                    <input type="checkbox" name="${rememberMeParameter}" id="remember_me"
-                           <g:if test="${hasCookie}">checked="checked"</g:if>/> <g:message
-                        code="springSecurity.login.remember.me.label"/>
-                </label>
+            <div class="form-line">
+                <div class="input-field checkbox">
+                    <label for="remember_me" class="checkbox">
+                        <input type="checkbox" name="${rememberMeParameter}" id="remember_me"
+                               <g:if test="${hasCookie}">checked="checked"</g:if>/> <g:message
+                            code="login.remember-me.label"/>
+                    </label>
+                </div>
             </div>
-        </div>
+        </fieldset>
 
-        <div class="control-group">
-            <div class="controls">
-                <input type="submit" id="submit" value="${message(code: 'springSecurity.login.button')}"
-                       class="btn btn-primary"/>
-            </div>
+        <div class="buttons">
+            <input type="submit" id="submit" value="${message(code: 'default.button.login.label')}"
+                   class="button default"/>
         </div>
     </form>
 </div>
