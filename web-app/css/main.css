@@ -253,6 +253,8 @@ div.message {
     background-color: #7aba7b;
     border-radius: 5px;
     color: #344804;
+    padding: 10px;
+    margin-bottom: 5px;
 }
 
 /* end errors & messages -------------------------------------------------- */
