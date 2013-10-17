@@ -38,18 +38,21 @@
             <li class="item ball">
                 <g:img dir="images" file="noimage.jpg" class="item-image ball"/>
 
-                <g:actionSubmitImage id="delete" action="delete" class="item-delete button"
-                                     value="${message(code: 'default.button.delete.label')}"
-                                     alt="${message(code: 'default.button.delete.label')}"
-                                     title="${message(code: 'default.button.delete.label')}"
-                                     src="${resource(dir: 'images', file: 'delete.png')}"
-                                     formnovalidate=""
-                                     onclick="return confirm('${message(code: 'default.button.delete.confirm.message')}');"/>
-                <g:actionSubmitImage id="edit" action="edit" class="item-edit button"
-                                     value="${message(code: 'default.button.edit.label')}"
-                                     alt="${message(code: 'default.button.edit.label')}"
-                                     title="${message(code: 'default.button.edit.label')}"
-                                     src="${resource(dir: 'images', file: 'edit.png')}"/>
+                <g:form id="${ballInstance.id}" class="item-buttons">
+                    <g:actionSubmitImage class="item-button edit"
+                                         action="edit"
+                                         src="${resource(dir: 'images', file: 'edit.png')}"
+                                         value="${message(code: 'default.button.edit.label')}"
+                                         alt="${message(code: 'default.button.edit.label')}"
+                                         title="${message(code: 'default.button.edit.label')}"/>
+                    <g:actionSubmitImage class="item-button delete"
+                                         action="delete"
+                                         onclick="return confirm('${message(code: 'default.button.delete.confirm.message')}');"
+                                         src="${resource(dir: 'images', file: 'delete.png')}"
+                                         value="${message(code: 'default.button.delete.label')}"
+                                         alt="${message(code: 'default.button.delete.label')}"
+                                         title="${message(code: 'default.button.delete.label')}"/>
+                </g:form>
 
                 <div class="item-title ball">
                     <g:link action="edit" class="edit" id="${ballInstance.id}">

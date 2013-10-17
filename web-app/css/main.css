@@ -142,12 +142,15 @@ img.item-image {
 .item-properties {
 }
 
-.button.item-edit, .button.item-delete {
-    width: 22px;
-    height: 22px;
+.item-buttons {
     float: right;
     margin-top: 5px;
     margin-right: 5px;
+}
+
+.item-button.edit, .item-button.delete {
+    width: 22px;
+    height: 22px;
 }
 
 /* end list --------------------------------------------------------------- */
