@@ -91,45 +91,54 @@
 
     <div id="title-container">
         <span class="page-title"><g:layoutTitle/></span>
-        <span class="login-info">
-            <span class="current-user">
-                <g:message code="current.user.label"/>
-                <sec:username/>
+        <sec:ifLoggedIn>
+            <span class="login-info">
+                <span class="current-user">
+                    <g:message code="current.user.label"/>
+                    <sec:username/>
+                </span>
             </span>
-            <sec:ifLoggedIn>
-                <g:link controller="logout" elementId="logout" class="logout-link">
-                    <g:message code="logout.button"/>
-                </g:link>
-            </sec:ifLoggedIn>
-            <sec:ifNotLoggedIn>
-                <g:link controller="login" action="auth" elementId="login" class="login-link">
-                    <g:message code="login.button"/>
-                </g:link>
-            </sec:ifNotLoggedIn>
-        </span>
+        </sec:ifLoggedIn>
     </div>
     <ul id="nav-bar" role="navigation">
-        <g:if test="${controllerName.equals('ball')}">
-            <li class="active"><g:message code="ball.list.title"/></li>
-        </g:if>
-        <g:else>
-            <li><g:link controller="ball" action="list"><g:message code="ball.list.title"/></g:link></li>
-        </g:else>
+        <sec:access url="/ball">
+            <g:if test="${controllerName.equals('ball')}">
+                <li class="active"><g:message code="ball.list.title"/></li>
+            </g:if>
+            <g:else>
+                <li><g:link controller="ball" action="list">
+                    <g:message code="ball.list.title"/></g:link></li>
+            </g:else>
+        </sec:access>
 
-        <g:if test="${controllerName.equals('course')}">
-            <li class="active"><g:message code="course.list.title"/></li>
-        </g:if>
-        <g:else>
-            <li><g:link controller="course" action="list"><g:message code="course.list.title"/></g:link></li>
-        </g:else>
+        <sec:access url="/course">
+            <g:if test="${controllerName.equals('course')}">
+                <li class="active"><g:message code="course.list.title"/></li>
+            </g:if>
+            <g:else>
+                <li><g:link controller="course" action="list">
+                    <g:message code="course.list.title"/></g:link></li>
+            </g:else>
+        </sec:access>
 
-        <g:if test="${controllerName.equals('manufacturer')}">
-            <li class="active"><g:message code="manufacturer.list.title"/></li>
-        </g:if>
-        <g:else>
-            <li><g:link controller="manufacturer" action="list"><g:message
-                    code="manufacturer.list.title"/></g:link></li>
-        </g:else>
+        <sec:access url="/manufacturer">
+            <g:if test="${controllerName.equals('manufacturer')}">
+                <li class="active"><g:message code="manufacturer.list.title"/></li>
+            </g:if>
+            <g:else>
+                <li><g:link controller="manufacturer" action="list">
+                    <g:message code="manufacturer.list.title"/></g:link></li>
+            </g:else>
+        </sec:access>
+
+        <sec:ifNotLoggedIn>
+            <li class="pull-right"><g:link controller="login" action="auth" elementId="login" class="login-link">
+                <g:message code="login.button"/></g:link></li>
+        </sec:ifNotLoggedIn>
+        <sec:ifLoggedIn>
+            <li class="pull-right"><g:link controller="logout" elementId="logout" class="logout-link">
+                <g:message code="logout.button"/></g:link></li>
+        </sec:ifLoggedIn>
     </ul>
 </div>
 

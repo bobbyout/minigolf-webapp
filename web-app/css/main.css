@@ -70,6 +70,16 @@ a {
     margin-right: 10px;
 }
 
+#nav-bar > li.pull-right {
+    float: right;
+    padding-right: 0;
+    border-right: none;
+    margin-right: 0;
+    padding-left: 10px;
+    border-left: 1px solid gray;
+    margin-left: 10px;
+}
+
 #nav-bar > li.active {
     color: #cccccc;
 }
