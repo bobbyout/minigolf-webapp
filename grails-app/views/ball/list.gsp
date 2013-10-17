@@ -35,7 +35,7 @@
 
     <ul class="list ball">
         <g:each in="${ballInstanceList}" status="i" var="ballInstance">
-            <li class="item ball">
+            <li class="item ball" ondblclick="jQuery(this).find('form>input.item-button.edit').click();">
                 <g:img dir="images" file="noimage.jpg" class="item-image ball"/>
 
                 <g:form id="${ballInstance.id}" class="item-buttons">

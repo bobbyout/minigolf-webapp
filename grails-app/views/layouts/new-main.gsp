@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
 
+    <g:javascript library="jquery" plugin="jquery"/>
+
     <g:layoutHead/>
     <r:layoutResources/>
 
