@@ -28,9 +28,6 @@
 
 <body>
 
-<div id="page-menu" role="navigation">
-</div>
-
 <div id="content" role="main">
 
     <g:form method="post" class="form">

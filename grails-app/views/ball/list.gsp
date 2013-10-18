@@ -22,17 +22,6 @@
         <div class="message" role="status">${flash.message}</div>
     </g:if>
 
-    <g:if test="${ballInstance?.hasErrors()}">
-        <g:hasErrors bean="${ballInstance}">
-            <ul class="errors" role="alert">
-                <g:eachError bean="${ballInstance}" var="error">
-                    <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message
-                            error="${error}"/></li>
-                </g:eachError>
-            </ul>
-        </g:hasErrors>
-    </g:if>
-
     <ul class="list ball">
         <g:each in="${ballInstanceList}" status="i" var="ballInstance">
             <li class="item ball" ondblclick="jQuery(this).find('form>input.item-button.edit').click();">

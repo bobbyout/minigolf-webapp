@@ -1,4 +1,7 @@
 <%@ page import="de.javandry.minigolf.webapp.balls.Ball" %>
+<%@ page import="de.javandry.minigolf.webapp.balls.Manufacturer" %>
+<%@ page import="de.javandry.minigolf.webapp.balls.Size" %>
+<%@ page import="de.javandry.minigolf.webapp.balls.Surface" %>
 
 <fieldset>
     <div class="form-line ${hasErrors(bean: ballInstance, field: 'manufacturer', 'error')}">
@@ -6,7 +9,7 @@
 
         <div class="input-field">
             <g:select id="manufacturer" name="manufacturer.id"
-                      from="${de.javandry.minigolf.webapp.balls.Manufacturer.list()}"
+                      from="${Manufacturer.list()}"
                       optionKey="id"
                       value="${ballInstance?.manufacturer?.id}"
                       noSelection="['null': '']"
@@ -28,8 +31,8 @@
 
         <div class="input-field">
             <g:select name="size"
-                      from="${de.javandry.minigolf.webapp.balls.Size?.values()}"
-                      keys="${de.javandry.minigolf.webapp.balls.Size.values()*.name()}"
+                      from="${Size?.values()}"
+                      keys="${Size.values()*.name()}"
                       value="${ballInstance?.size?.name()}"
                       noSelection="['': '']"
                       class="${hasErrors(bean: ballInstance, field: 'size', 'error')}"/>
@@ -41,8 +44,8 @@
 
         <div class="input-field">
             <g:select name="surface"
-                      from="${de.javandry.minigolf.webapp.balls.Surface?.values()}"
-                      keys="${de.javandry.minigolf.webapp.balls.Surface.values()*.name()}"
+                      from="${Surface?.values()}"
+                      keys="${Surface.values()*.name()}"
                       value="${ballInstance?.surface?.name()}"
                       noSelection="['': '']"
                       class="${hasErrors(bean: ballInstance, field: 'surface', 'error')}"/>
