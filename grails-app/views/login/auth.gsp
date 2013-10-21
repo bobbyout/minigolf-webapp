@@ -1,6 +1,6 @@
 <html>
 <head>
-    <meta name="layout" content="new-main"/>
+    <meta name="layout" content="main"/>
     <title><g:message code="app.login.title"/></title>
 
     <style type="text/css">

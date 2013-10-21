@@ -1,5 +1,5 @@
 <head>
-    <meta name="layout" content="new-main"/>
+    <meta name="layout" content="main"/>
     <title><g:message code="app.denied.title"/></title>
 </head>
 
