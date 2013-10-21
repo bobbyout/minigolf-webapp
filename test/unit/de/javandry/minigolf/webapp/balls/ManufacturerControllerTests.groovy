@@ -9,8 +9,8 @@ class ManufacturerControllerTests {
 
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params["shortName"] = 'short name'
+        params["longName"] = 'long name'
     }
 
     void testIndex() {
@@ -43,7 +43,7 @@ class ManufacturerControllerTests {
         populateValidParams(params)
         controller.save()
 
-        assert response.redirectedUrl == '/manufacturer/show/1'
+        assert response.redirectedUrl == '/manufacturer/list'
         assert controller.flash.message != null
         assert Manufacturer.count() == 1
     }
@@ -99,7 +99,8 @@ class ManufacturerControllerTests {
 
         // test invalid parameters in update
         params.id = manufacturer.id
-        //TODO: add invalid values to params object
+        params.shortName = null
+        params.longName = null
 
         controller.update()
 
@@ -111,7 +112,7 @@ class ManufacturerControllerTests {
         populateValidParams(params)
         controller.update()
 
-        assert response.redirectedUrl == "/manufacturer/show/$manufacturer.id"
+        assert response.redirectedUrl == "/manufacturer/list"
         assert flash.message != null
 
         //test outdated version number

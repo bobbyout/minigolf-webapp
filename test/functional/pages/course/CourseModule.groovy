@@ -5,9 +5,9 @@ import geb.Module
 class CourseModule extends Module {
 
     static content = {
-        name { $("span", class: "course-name").text()?.trim() }
-        type { $("span", class: "course-type").text()?.trim() }
+        name { $("span", class: "name").text()?.trim() }
+        type { $("span", class: "type").text()?.trim() }
         address { $("address").text()?.trim() }
-        editButton { $("a", class: "editLink") }
+        editButton { $("input.item-button.edit") }
     }
 }

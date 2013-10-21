@@ -56,7 +56,7 @@
                             action="delete" formnovalidate=""
                             value="${message(code: 'default.button.delete.label')}"
                             onclick="return confirm('${message(code: 'default.button.delete.confirm.message')}');"/>
-            <g:actionSubmit name="update" class="button default"
+            <g:actionSubmit id="update" name="update" class="button default"
                             action="update"
                             value="${message(code: 'default.button.update.label')}"/>
         </div>

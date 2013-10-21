@@ -7,7 +7,7 @@ class BallCreatePage extends Page {
     static at = { title.startsWith "Create Ball" }
 
     static content = {
-        errors { $('ul.errors') }
+        errors { $('ul.messages.error') }
         manufacturer { $('select', id: 'manufacturer') }
         name { $('input', id: 'name') }
         size { $('select', id: 'size') }

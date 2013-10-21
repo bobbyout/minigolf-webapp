@@ -7,7 +7,7 @@ class BallEditPage extends Page {
     static at = { title.startsWith "Edit Ball" }
 
     static content = {
-        errors { $('ul.errors') }
+        errors { $('ul.messages.error') }
         manufacturer { $('select', id: 'manufacturer') }
         name { $('input', id: 'name') }
         size { $('select', id: 'size') }

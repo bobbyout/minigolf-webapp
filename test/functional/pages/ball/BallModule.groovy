@@ -11,6 +11,6 @@ class BallModule extends Module {
         speed { $("span", class: "speed").text()?.trim() }
         shore { $("span", class: "shore").text()?.trim() }
         weight { $("span", class: "weight").text()?.trim() }
-        editButton { $("a", class: "edit") }
+        editButton { $("input.item-button.edit") }
     }
 }

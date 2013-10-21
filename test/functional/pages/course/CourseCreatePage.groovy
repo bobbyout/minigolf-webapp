@@ -5,7 +5,7 @@ class CourseCreatePage extends AbstractCoursePage {
     static at = { title.startsWith "New Course" }
 
     static content = {
-        errors { $("ul.errors") }
+        errors { $("ul.messages.error") }
         name { $("input", id: "name") }
         type { $("select", id: "type") }
         address { $("textarea", id: "address") }

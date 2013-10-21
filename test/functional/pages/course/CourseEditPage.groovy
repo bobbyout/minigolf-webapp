@@ -5,11 +5,11 @@ class CourseEditPage extends AbstractCoursePage {
     static at = { title.startsWith "Edit Course" }
 
     static content = {
-        errors { $("ul.errors") }
+        errors { $("ul.messages.error") }
         name { $("input", id: "name") }
         type { $("select", id: "type") }
         address { $("textarea", id: "address") }
-        saveButton { $("input", id: "save") }
+        saveButton { $("input", id: "update") }
     }
 
     String errorForField(String fieldName) {

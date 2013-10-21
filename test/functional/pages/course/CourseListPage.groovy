@@ -11,7 +11,7 @@ class CourseListPage extends AbstractCoursePage {
     static content = {
         createButton { $("a", id: "create") }
 
-        courses { moduleList CourseModule, $("li.media") }
+        courses { moduleList CourseModule, $("li.item.course") }
 
         resourceBundle {
             ResourceBundle bundle = new PropertyResourceBundle(new InputStreamReader(new FileInputStream('./grails-app/i18n/messages.properties'), "UTF-8"))
