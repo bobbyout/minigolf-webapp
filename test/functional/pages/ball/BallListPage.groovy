@@ -10,20 +10,23 @@ class BallListPage extends Page {
     static at = { title.startsWith "Balls" }
 
     static content = {
-        ballRows { moduleList BallModule, $("li.ball") }
-
-        createButton { $("a", id: "create") }
+        items { moduleList BallListItem, $("li.item") }
+        createButton { $("a#create") }
     }
 
-    def contains(List<Ball> balls) {
-        balls.each { contains(it) }
+    def item(Ball ball) {
+        items.find { it.equals(ball) };
     }
 
-    def contains(Ball ball) {
-        ballRows.find { it.name == ball.name };
+    def shows(List<Ball> balls) {
+        balls.each { shows(it) }
+    }
+
+    def shows(Ball ball) {
+        items.find { it.equals(ball) }
     }
 
     def editButtonForBall(String name) {
-        return ballRows.find { it.name == name }.editButton
+        return items.find { it.name == name }.editButton
     }
 }

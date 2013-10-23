@@ -39,7 +39,7 @@ class EditBallSpec extends LoggedInAsUserSpec {
         then:
         at BallListPage
         Manufacturer manufacturerBuM = Manufacturer.findByShortName("B&M")
-        contains(new Ball(manufacturer: manufacturerBuM, name: "A1", size: Size.k, surface: Surface.r, speed: 51, shore: 43, weight: 35))
-        !contains(new Ball(manufacturer: manufacturer3D, name: "type 543"))
+        shows(new Ball(manufacturer: manufacturerBuM, name: "A1", size: Size.k, surface: Surface.r, speed: 51, shore: 43, weight: 35))
+        !shows(new Ball(manufacturer: manufacturer3D, name: "type 543"))
     }
 }

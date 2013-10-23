@@ -22,6 +22,6 @@ class Ball {
 
     @Override
     String toString() {
-        return "Ball(id: $id, manufacturer: $manufacturer, name: $name)"
+        return "Ball(id: $id, manufacturer: $manufacturer, name: $name, size: $size, surface: $surface)"
     }
 }

@@ -31,7 +31,7 @@ class CreateBallSpec extends LoggedInAsUserSpec {
         then:
         at BallListPage
         Manufacturer manufacturer3D = Manufacturer.find(new Manufacturer(shortName: '3D'))
-        contains(new Ball(manufacturer: manufacturer3D, name: "type 543", size: Size.m, surface: Surface.l, speed: 24, shore: 50, weight: 47))
+        shows(new Ball(manufacturer: manufacturer3D, name: "type 543", size: Size.m, surface: Surface.l, speed: 24, shore: 50, weight: 47))
     }
 
     def "create ball with name only"() {
@@ -48,7 +48,7 @@ class CreateBallSpec extends LoggedInAsUserSpec {
 
         then:
         at BallListPage
-        contains(new Ball(name: "type 543"))
+        shows(new Ball(name: "type 543"))
     }
 
     def "submit empty form"() {
