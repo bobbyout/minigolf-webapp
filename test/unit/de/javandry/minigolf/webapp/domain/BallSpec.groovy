@@ -4,8 +4,8 @@ import de.javandry.minigolf.webapp.Ball
 import grails.plugin.spock.UnitSpec
 import grails.test.mixin.TestFor
 
-import static de.javandry.minigolf.webapp.Size.*
-import static de.javandry.minigolf.webapp.Surface.*
+import static de.javandry.minigolf.webapp.Ball.Size.*
+import static de.javandry.minigolf.webapp.Ball.Surface.*
 
 @TestFor(Ball)
 class BallSpec extends UnitSpec {

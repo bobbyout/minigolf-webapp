@@ -2,6 +2,14 @@ package de.javandry.minigolf.webapp
 
 class Ball {
 
+    enum Size {
+        k, m, g
+    }
+
+    enum Surface {
+        l, r, x
+    }
+
     String name
     Manufacturer manufacturer
     Size size

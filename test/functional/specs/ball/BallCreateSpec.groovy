@@ -2,8 +2,6 @@ package specs.ball
 
 import de.javandry.minigolf.webapp.Ball
 import de.javandry.minigolf.webapp.Manufacturer
-import de.javandry.minigolf.webapp.Size
-import de.javandry.minigolf.webapp.Surface
 import pages.ball.BallCreatePage
 import pages.ball.BallListPage
 import specs.LoggedInAsUserSpec
@@ -31,7 +29,7 @@ class BallCreateSpec extends LoggedInAsUserSpec {
         then:
         at BallListPage
         Manufacturer manufacturer3D = Manufacturer.find(new Manufacturer(shortName: '3D'))
-        shows(new Ball(manufacturer: manufacturer3D, name: "type 543", size: Size.m, surface: Surface.l, speed: 24, shore: 50, weight: 47))
+        shows(new Ball(manufacturer: manufacturer3D, name: "type 543", size: Ball.Size.m, surface: Ball.Surface.l, speed: 24, shore: 50, weight: 47))
     }
 
     def "create ball with name only"() {
