@@ -1,4 +1,4 @@
-<%@ page import="de.javandry.minigolf.webapp.balls.Ball" %>
+<%@ page import="de.javandry.minigolf.webapp.Ball" %>
 <!DOCTYPE html>
 <html>
 <head>

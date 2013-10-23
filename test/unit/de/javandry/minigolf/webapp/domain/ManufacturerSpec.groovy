@@ -1,5 +1,6 @@
-package de.javandry.minigolf.webapp.balls
+package de.javandry.minigolf.webapp.domain
 
+import de.javandry.minigolf.webapp.Manufacturer
 import grails.plugin.spock.UnitSpec
 import grails.test.mixin.TestFor
 

@@ -1,6 +1,6 @@
 package pages.ball
 
-import de.javandry.minigolf.webapp.balls.Ball
+import de.javandry.minigolf.webapp.Ball
 import geb.Module
 import org.openqa.selenium.interactions.Actions
 

@@ -1,4 +1,4 @@
-package de.javandry.minigolf.webapp.balls
+package de.javandry.minigolf.webapp
 
 import grails.plugins.springsecurity.Secured
 import org.springframework.dao.DataIntegrityViolationException

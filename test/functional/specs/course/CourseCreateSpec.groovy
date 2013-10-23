@@ -5,7 +5,7 @@ import pages.course.CourseCreatePage
 import pages.course.CourseListPage
 import specs.LoggedInAsUserSpec
 
-class CreateCourseSpec extends LoggedInAsUserSpec {
+class CourseCreateSpec extends LoggedInAsUserSpec {
 
     private static final String aCourseName = "course name"
     private static final Course.Type aCourseType = Course.Type.ABT_1

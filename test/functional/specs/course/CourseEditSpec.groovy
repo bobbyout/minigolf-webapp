@@ -5,7 +5,7 @@ import pages.course.CourseEditPage
 import pages.course.CourseListPage
 import specs.LoggedInAsUserSpec
 
-class EditCourseSpec extends LoggedInAsUserSpec {
+class CourseEditSpec extends LoggedInAsUserSpec {
 
     static final String oldCourseName = "Köln Müngersdorf"
     static final String newCourseName = "alte Kölner"

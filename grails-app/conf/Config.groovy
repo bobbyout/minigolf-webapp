@@ -11,7 +11,7 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
-grails.project.groupId = "de.javandry.minigolf" // change this to alter the default package name and Maven publishing destination
+grails.project.groupId = "controller.javandry.minigolf" // change this to alter the default package name and Maven publishing destination
 // grails.project.fork.run=true
 grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
 grails.mime.use.accept.header = false
@@ -93,7 +93,7 @@ log4j = {
             'org.hibernate',
             'net.sf.ehcache.hibernate'
 
-    info 'de.javandry.minigolf.webapp',
+    info 'controller.javandry.minigolf.webapp',
             'specs'
 }
 

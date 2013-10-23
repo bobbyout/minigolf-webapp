@@ -1,4 +1,4 @@
-<%@ page import="de.javandry.minigolf.webapp.balls.Manufacturer" %>
+<%@ page import="de.javandry.minigolf.webapp.Manufacturer" %>
 
 
 <fieldset>

@@ -1,5 +1,7 @@
-package de.javandry.minigolf.webapp.balls
+package de.javandry.minigolf.webapp.controller
 
+import de.javandry.minigolf.webapp.Manufacturer
+import de.javandry.minigolf.webapp.ManufacturerController
 import grails.test.mixin.Mock
 import grails.test.mixin.TestFor
 

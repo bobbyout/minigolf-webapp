@@ -1,6 +1,6 @@
 package pages.ball
 
-import de.javandry.minigolf.webapp.balls.Ball
+import de.javandry.minigolf.webapp.Ball
 import geb.Page
 import pages.IndexPage
 

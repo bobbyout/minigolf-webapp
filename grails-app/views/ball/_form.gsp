@@ -1,7 +1,7 @@
-<%@ page import="de.javandry.minigolf.webapp.balls.Ball" %>
-<%@ page import="de.javandry.minigolf.webapp.balls.Manufacturer" %>
-<%@ page import="de.javandry.minigolf.webapp.balls.Size" %>
-<%@ page import="de.javandry.minigolf.webapp.balls.Surface" %>
+<%@ page import="de.javandry.minigolf.webapp.Ball" %>
+<%@ page import="de.javandry.minigolf.webapp.Manufacturer" %>
+<%@ page import="de.javandry.minigolf.webapp.Size" %>
+<%@ page import="de.javandry.minigolf.webapp.Surface" %>
 
 <fieldset>
     <div class="form-line ${hasErrors(bean: ballInstance, field: 'manufacturer', 'error')}">

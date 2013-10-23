@@ -1,11 +1,4 @@
-import de.javandry.minigolf.webapp.Course
-import de.javandry.minigolf.webapp.Role
-import de.javandry.minigolf.webapp.User
-import de.javandry.minigolf.webapp.UserRole
-import de.javandry.minigolf.webapp.balls.Ball
-import de.javandry.minigolf.webapp.balls.Manufacturer
-import de.javandry.minigolf.webapp.balls.Size
-import de.javandry.minigolf.webapp.balls.Surface
+import de.javandry.minigolf.webapp.*
 
 class BootStrap {
 

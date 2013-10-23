@@ -1,14 +1,14 @@
-package specs.balls
+package specs.ball
 
-import de.javandry.minigolf.webapp.balls.Ball
-import de.javandry.minigolf.webapp.balls.Manufacturer
-import de.javandry.minigolf.webapp.balls.Size
-import de.javandry.minigolf.webapp.balls.Surface
+import de.javandry.minigolf.webapp.Ball
+import de.javandry.minigolf.webapp.Manufacturer
+import de.javandry.minigolf.webapp.Size
+import de.javandry.minigolf.webapp.Surface
 import pages.ball.BallCreatePage
 import pages.ball.BallListPage
 import specs.LoggedInAsUserSpec
 
-class CreateBallSpec extends LoggedInAsUserSpec {
+class BallCreateSpec extends LoggedInAsUserSpec {
 
     def "create ball with all properties"() {
         given:

@@ -1,11 +1,10 @@
 package specs.course
 
 import de.javandry.minigolf.webapp.Course
-import grails.buildtestdata.mixin.Build
 import pages.course.CourseListPage
 import specs.LoggedInAsUserSpec
 
-class ListCoursesSpec extends LoggedInAsUserSpec {
+class CourseListSpec extends LoggedInAsUserSpec {
 
     Course course1, course2, course3
 
