@@ -2,13 +2,14 @@ package specs.course
 
 import de.javandry.minigolf.webapp.Course
 import pages.course.CourseListPage
-import specs.LoggedInAsUserSpec
+import specs.BaseSpec
 
-class CourseListSpec extends LoggedInAsUserSpec {
+class CourseListSpec extends BaseSpec {
 
     Course course1, course2, course3
 
     def setup() {
+        loggedInAsUser()
         Course.clear()
         assert Course.count() == 0
         course1 = Course.build(name: "Köln Müngersdorf", type: Course.Type.ABT_1, address: "Aachener Str.703, 50933 Köln")

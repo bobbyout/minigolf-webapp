@@ -3,10 +3,11 @@ package specs
 import pages.IndexPage
 import pages.ball.BallListPage
 
-class IndexSpec extends LoggedInAsUserSpec {
+class IndexSpec extends BaseSpec {
 
     def "open index page forwards to ball list"() {
         given: "go to index page"
+        loggedInAsUser()
         to IndexPage
 
         expect: "forwarded to ball list page"

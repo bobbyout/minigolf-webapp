@@ -4,11 +4,12 @@ import de.javandry.minigolf.webapp.Ball
 import de.javandry.minigolf.webapp.Manufacturer
 import pages.ball.BallEditPage
 import pages.ball.BallListPage
-import specs.LoggedInAsUserSpec
+import specs.BaseSpec
 
-class BallEditSpec extends LoggedInAsUserSpec {
+class BallEditSpec extends BaseSpec {
 
     def setup() {
+        loggedInAsUser()
         Ball.executeUpdate("DELETE FROM Ball")
         assert Ball.count == 0
     }

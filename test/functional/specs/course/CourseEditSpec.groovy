@@ -3,9 +3,9 @@ package specs.course
 import de.javandry.minigolf.webapp.Course
 import pages.course.CourseEditPage
 import pages.course.CourseListPage
-import specs.LoggedInAsUserSpec
+import specs.BaseSpec
 
-class CourseEditSpec extends LoggedInAsUserSpec {
+class CourseEditSpec extends BaseSpec {
 
     static final String oldCourseName = "Köln Müngersdorf"
     static final String newCourseName = "alte Kölner"
@@ -17,6 +17,7 @@ class CourseEditSpec extends LoggedInAsUserSpec {
     static final String newCourseAddress = "Andere Straße 1, 12345 Andere Stad"
 
     def setup() {
+        loggedInAsUser()
         Course.clear()
         assert Course.count() == 0
         Course.build(name: "Köln Müngersdorf", type: Course.Type.ABT_1, address: "Aachener Str.703, 50933 Köln")

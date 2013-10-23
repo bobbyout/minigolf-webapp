@@ -4,9 +4,13 @@ import de.javandry.minigolf.webapp.Ball
 import de.javandry.minigolf.webapp.Manufacturer
 import pages.ball.BallCreatePage
 import pages.ball.BallListPage
-import specs.LoggedInAsUserSpec
+import specs.BaseSpec
 
-class BallCreateSpec extends LoggedInAsUserSpec {
+class BallCreateSpec extends BaseSpec {
+
+    def setup() {
+        loggedInAsUser()
+    }
 
     def "create ball with all properties"() {
         given:

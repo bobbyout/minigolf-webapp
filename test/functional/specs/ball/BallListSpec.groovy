@@ -4,11 +4,11 @@ import de.javandry.minigolf.webapp.Ball
 import de.javandry.minigolf.webapp.Manufacturer
 import pages.ball.BallEditPage
 import pages.ball.BallListPage
-import specs.LoggedInAsUserSpec
+import specs.BaseSpec
 import spock.lang.Ignore
 import spock.lang.Shared
 
-class BallListSpec extends LoggedInAsUserSpec {
+class BallListSpec extends BaseSpec {
 
     @Shared
     def ball1, ball2, ball3;
@@ -20,6 +20,9 @@ class BallListSpec extends LoggedInAsUserSpec {
     }
 
     def "shows all balls"() {
+        given:
+        loggedInAsUser()
+
         when:
         to BallListPage
 
@@ -31,6 +34,7 @@ class BallListSpec extends LoggedInAsUserSpec {
     @Ignore
     def "double click on item opens ball for edit"() {
         given:
+        loggedInAsUser()
         to BallListPage
 
         expect:

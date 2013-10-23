@@ -3,15 +3,16 @@ package specs.course
 import de.javandry.minigolf.webapp.Course
 import pages.course.CourseCreatePage
 import pages.course.CourseListPage
-import specs.LoggedInAsUserSpec
+import specs.BaseSpec
 
-class CourseCreateSpec extends LoggedInAsUserSpec {
+class CourseCreateSpec extends BaseSpec {
 
     private static final String aCourseName = "course name"
     private static final Course.Type aCourseType = Course.Type.ABT_1
     private static final String aCourseAddress = "Main Street 123, 45678 Downtown"
 
     def setup() {
+        loggedInAsUser()
         Course.findByName(aCourseName)?.delete(flush: true)
     }
 
