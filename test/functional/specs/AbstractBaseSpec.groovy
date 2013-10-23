@@ -4,7 +4,7 @@ import geb.spock.GebReportingSpec
 import pages.LoginPage
 
 
-class BaseSpec extends GebReportingSpec {
+abstract class AbstractBaseSpec extends GebReportingSpec {
 
     static def userCredentials = [username: "user", password: "password"]
     static def adminCredentials = [username: "admin", password: "password"]

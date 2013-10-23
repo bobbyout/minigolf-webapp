@@ -2,9 +2,9 @@ package specs.course
 
 import de.javandry.minigolf.webapp.Course
 import pages.course.CourseListPage
-import specs.BaseSpec
+import specs.AbstractBaseSpec
 
-class CourseListSpec extends BaseSpec {
+class CourseListSpec extends AbstractBaseSpec {
 
     Course course1, course2, course3
 

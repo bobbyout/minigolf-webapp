@@ -1,22 +1,20 @@
 package specs.ball
 
 import de.javandry.minigolf.webapp.Ball
-import de.javandry.minigolf.webapp.Manufacturer
 import pages.ball.BallEditPage
 import pages.ball.BallListPage
-import specs.BaseSpec
 import spock.lang.Ignore
 import spock.lang.Shared
 
-class BallListSpec extends BaseSpec {
+class BallListSpec extends AbstractBallSpec {
 
     @Shared
-    def ball1, ball2, ball3;
+    def ball1, ball2, ball3
 
     def setup() {
-        ball1 = Ball.build(name: "type 543", manufacturer: Manufacturer.build(shortName: "3D", longName: "3D"), size: Ball.Size.m, surface: Ball.Surface.l)
-        ball2 = Ball.build(name: "K 2", manufacturer: Manufacturer.build(shortName: "B&M", longName: "Beck & Meth"), size: Ball.Size.m, surface: Ball.Surface.l)
-        ball3 = Ball.build(name: "BO 1", manufacturer: Manufacturer.build(shortName: "Reis.", longName: "Reisinger"), size: Ball.Size.m, surface: Ball.Surface.l)
+        ball1 = Ball.build(manufacturer: manufacturer3D, name: "type 543", size: Ball.Size.m, surface: Ball.Surface.l)
+        ball2 = Ball.build(manufacturer: manufacturerBuM, name: "K 2", size: Ball.Size.m, surface: Ball.Surface.l)
+        ball3 = Ball.build(manufacturer: manufacturerReis, name: "BO 1", size: Ball.Size.m, surface: Ball.Surface.l)
     }
 
     def "shows all balls"() {

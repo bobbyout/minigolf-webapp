@@ -3,9 +3,9 @@ package specs.course
 import de.javandry.minigolf.webapp.Course
 import pages.course.CourseCreatePage
 import pages.course.CourseListPage
-import specs.BaseSpec
+import specs.AbstractBaseSpec
 
-class CourseCreateSpec extends BaseSpec {
+class CourseCreateSpec extends AbstractBaseSpec {
 
     private static final String aCourseName = "course name"
     private static final Course.Type aCourseType = Course.Type.ABT_1

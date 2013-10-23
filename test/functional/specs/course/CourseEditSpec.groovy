@@ -3,9 +3,9 @@ package specs.course
 import de.javandry.minigolf.webapp.Course
 import pages.course.CourseEditPage
 import pages.course.CourseListPage
-import specs.BaseSpec
+import specs.AbstractBaseSpec
 
-class CourseEditSpec extends BaseSpec {
+class CourseEditSpec extends AbstractBaseSpec {
 
     static final String oldCourseName = "Köln Müngersdorf"
     static final String newCourseName = "alte Kölner"

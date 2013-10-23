@@ -55,11 +55,6 @@ class BootStrap {
                 new Course(name: "Gummersbach Derschlag", type: Course.Type.ABT_4, address: "Klosterstraße 41, 51645 Gummersbach").save(failOnError: true)
                 new Course(name: "Castrop Goldschmiedingpark", type: Course.Type.ABT_4, address: "Dortmunder Str. 61, 44575 Castrop-Rauxel").save(failOnError: true)
             }
-            test {
-                def manufacturer3D = new Manufacturer(shortName: "3D", longName: "3D").save(failOnError: true)
-                def manufacturerBM = new Manufacturer(shortName: "B&M", longName: "Beck & Meth").save(failOnError: true)
-                def manufacturerReis = new Manufacturer(shortName: "Reis.", longName: "Reisinger").save(failOnError: true)
-            }
         }
     }
 

@@ -1,12 +1,10 @@
 package specs.ball
 
 import de.javandry.minigolf.webapp.Ball
-import de.javandry.minigolf.webapp.Manufacturer
 import pages.ball.BallCreatePage
 import pages.ball.BallListPage
-import specs.BaseSpec
 
-class BallCreateSpec extends BaseSpec {
+class BallCreateSpec extends AbstractBallSpec {
 
     def setup() {
         loggedInAsUser()
@@ -32,7 +30,6 @@ class BallCreateSpec extends BaseSpec {
 
         then:
         at BallListPage
-        Manufacturer manufacturer3D = Manufacturer.find(new Manufacturer(shortName: '3D'))
         shows(new Ball(manufacturer: manufacturer3D, name: "type 543", size: Ball.Size.m, surface: Ball.Surface.l, speed: 24, shore: 50, weight: 47))
     }
 

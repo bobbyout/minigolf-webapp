@@ -1,22 +1,17 @@
 package specs.ball
 
 import de.javandry.minigolf.webapp.Ball
-import de.javandry.minigolf.webapp.Manufacturer
 import pages.ball.BallEditPage
 import pages.ball.BallListPage
-import specs.BaseSpec
 
-class BallEditSpec extends BaseSpec {
+class BallEditSpec extends AbstractBallSpec {
 
     def setup() {
         loggedInAsUser()
-        Ball.executeUpdate("DELETE FROM Ball")
-        assert Ball.count == 0
     }
 
     def "modify all properties"() {
         given:
-        def manufacturer3D = Manufacturer.findByShortName("3D")
         Ball.build(name: "type 543", manufacturer: manufacturer3D)
         to BallListPage
         def editButton = editButtonForBall("type 543")
@@ -37,7 +32,6 @@ class BallEditSpec extends BaseSpec {
 
         then:
         at BallListPage
-        Manufacturer manufacturerBuM = Manufacturer.findByShortName("B&M")
         shows(new Ball(manufacturer: manufacturerBuM, name: "A1", size: Ball.Size.k, surface: Ball.Surface.r, speed: 51, shore: 43, weight: 35))
         !shows(new Ball(manufacturer: manufacturer3D, name: "type 543"))
     }
