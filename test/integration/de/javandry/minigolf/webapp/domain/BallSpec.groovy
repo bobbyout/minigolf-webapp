@@ -1,14 +1,12 @@
 package de.javandry.minigolf.webapp.domain
 
 import de.javandry.minigolf.webapp.Ball
-import grails.plugin.spock.UnitSpec
-import grails.test.mixin.TestFor
+import grails.plugin.spock.IntegrationSpec
 
 import static de.javandry.minigolf.webapp.Ball.Size.*
 import static de.javandry.minigolf.webapp.Ball.Surface.*
 
-@TestFor(Ball)
-class BallSpec extends UnitSpec {
+class BallSpec extends IntegrationSpec {
 
     void "without name is invalid"() {
         setup:

@@ -1,14 +1,9 @@
 package de.javandry.minigolf.webapp.domain
 
 import de.javandry.minigolf.webapp.Manufacturer
-import grails.plugin.spock.UnitSpec
-import grails.test.mixin.TestFor
+import grails.plugin.spock.IntegrationSpec
 
-/**
- * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
- */
-@TestFor(Manufacturer)
-class ManufacturerSpec extends UnitSpec {
+class ManufacturerSpec extends IntegrationSpec {
 
     void "always has a short name"() {
         setup:
