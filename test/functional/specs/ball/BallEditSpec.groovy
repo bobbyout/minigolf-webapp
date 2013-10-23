@@ -6,22 +6,18 @@ import pages.ball.BallListPage
 
 class BallEditSpec extends AbstractBallSpec {
 
-    def setup() {
-        loggedInAsUser()
-    }
-
     def "modify all properties"() {
         given:
-        Ball.build(name: "type 543", manufacturer: manufacturer3D)
+        oneBall()
+        loggedInAsUser()
         to BallListPage
-        def editButton = editButtonForBall("type 543")
-        editButton.click()
+        find(ball1).editButton.click()
 
         expect:
         at BallEditPage
 
         when:
-        manufacturer.value("Beck & Meth")
+        manufacturer.value(manufacturerBuM.longName)
         name.value("A1")
         size.value("k")
         surface.value("r")
@@ -33,6 +29,6 @@ class BallEditSpec extends AbstractBallSpec {
         then:
         at BallListPage
         shows(new Ball(manufacturer: manufacturerBuM, name: "A1", size: Ball.Size.k, surface: Ball.Surface.r, speed: 51, shore: 43, weight: 35))
-        !shows(new Ball(manufacturer: manufacturer3D, name: "type 543"))
+        !shows(ball1)
     }
 }

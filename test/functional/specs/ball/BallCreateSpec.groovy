@@ -6,12 +6,9 @@ import pages.ball.BallListPage
 
 class BallCreateSpec extends AbstractBallSpec {
 
-    def setup() {
-        loggedInAsUser()
-    }
-
     def "create ball with all properties"() {
         given:
+        loggedInAsUser()
         to BallListPage
         createButton.click()
 
@@ -35,6 +32,7 @@ class BallCreateSpec extends AbstractBallSpec {
 
     def "create ball with name only"() {
         given:
+        loggedInAsUser()
         to BallListPage
         createButton.click()
 
@@ -52,6 +50,7 @@ class BallCreateSpec extends AbstractBallSpec {
 
     def "submit empty form"() {
         given:
+        loggedInAsUser()
         to BallListPage
         createButton.click()
 
