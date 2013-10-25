@@ -14,7 +14,7 @@ class BallListPage extends Page {
         createButton(required: false) { $("a#create") }
     }
 
-    def find(Ball ball) {
+    def findBall(Ball ball) {
         items.find { it.equals(ball) };
     }
 
@@ -23,7 +23,7 @@ class BallListPage extends Page {
     }
 
     def shows(Ball ball) {
-        find(ball)
+        findBall(ball)
     }
 
     def createNew() {

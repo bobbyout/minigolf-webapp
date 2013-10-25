@@ -42,6 +42,13 @@ class BallListItem extends Module {
         return true
     }
 
+    def edit() {
+        if (editButton.isEmpty())
+            throw new UnsupportedOperationException("not available")
+
+        editButton.click()
+    }
+
     def doubleClick() {
         new Actions(driver).doubleClick($().firstElement()).build().perform()
     }

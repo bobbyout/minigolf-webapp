@@ -11,7 +11,7 @@ class BallEditSpec extends AbstractBallSpec {
         oneBall()
         loggedInAsUser()
         to BallListPage
-        find(ball1).editButton.click()
+        findBall(ball1).edit()
 
         expect:
         at BallEditPage

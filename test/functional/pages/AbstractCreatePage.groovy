@@ -1,9 +1,6 @@
 package pages
 
-import geb.Page
-
-
-class AbstractCreatePage extends Page {
+class AbstractCreatePage extends AbstractPage {
 
     static content = {
         errors { $('ul.messages.error') }
