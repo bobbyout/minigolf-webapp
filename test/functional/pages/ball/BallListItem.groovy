@@ -1,12 +1,11 @@
 package pages.ball
 
 import de.javandry.minigolf.webapp.Ball
-import geb.Module
-import org.openqa.selenium.interactions.Actions
+import pages.AbstractListItemModule
 
 import static org.junit.Assert.assertEquals
 
-class BallListItem extends Module {
+class BallListItem extends AbstractListItemModule {
 
     static content = {
         manufacturer { $("span.manufacturer").text()?.trim() }
@@ -16,8 +15,6 @@ class BallListItem extends Module {
         speed { $("span.speed").text()?.trim() }
         shore { $("span.shore").text()?.trim() }
         weight { $("span.weight").text()?.trim() }
-        editButton { $("input.item-button.edit") }
-        deleteButton { $("input.item-button.delete") }
     }
 
     def equals(Ball ball) {
@@ -55,14 +52,4 @@ class BallListItem extends Module {
         return true
     }
 
-    def edit() {
-        if (editButton.isEmpty())
-            throw new UnsupportedOperationException("not available")
-
-        editButton.click()
-    }
-
-    def doubleClick() {
-        new Actions(driver).doubleClick($().firstElement()).build().perform()
-    }
 }
