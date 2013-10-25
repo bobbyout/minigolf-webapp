@@ -35,9 +35,6 @@ class BallListSpec extends AbstractBallSpec {
         notLoggedIn()
 
         when:
-        // use browser.go with the url instead of the to method of the CreateQuestionPage because
-        // the to method automatically checks (with the at method of the page) if the navigation succeeded
-        // and that is not what we expect here
         browser.go BallListPage.url
 
         then:

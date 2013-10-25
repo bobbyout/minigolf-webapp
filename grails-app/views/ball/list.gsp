@@ -53,12 +53,12 @@
                 </div>
 
                 <div class="item-properties ball">
-                    <g:message code="ball.shore.label"/>: <g:formatNumber number="${ballInstance.shore}"
-                                                                          format="##.#"/>,
-                    <g:message code="ball.speed.label"/>: <g:formatNumber number="${ballInstance.speed}"
-                                                                          format="##.#"/>,
-                    <g:message code="ball.weight.label"/>: <g:formatNumber number="${ballInstance.weight}"
-                                                                           format="##.#"/>
+                    <g:message code="ball.shore.label"/>:
+                    <span class="shore"><g:formatNumber number="${ballInstance.shore}" format="##.#"/></span>,
+                <g:message code="ball.speed.label"/>:
+                    <span class="speed"><g:formatNumber number="${ballInstance.speed}" format="##.#"/></span>,
+                <g:message code="ball.weight.label"/>:
+                    <span class="weight"><g:formatNumber number="${ballInstance.weight}" format="##.#"/></span>
                 </div>
             </li>
         </g:each>

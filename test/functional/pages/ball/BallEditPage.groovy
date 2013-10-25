@@ -4,6 +4,8 @@ import de.javandry.minigolf.webapp.Ball
 import org.openqa.selenium.support.ui.Select
 import pages.AbstractEditPage
 
+import static org.junit.Assert.assertEquals
+
 class BallEditPage extends AbstractEditPage {
 
     static at = { title.startsWith "Edit Ball" }
@@ -19,13 +21,13 @@ class BallEditPage extends AbstractEditPage {
     }
 
     def shows(Ball ball) {
-        compareValue("manufacturer", ball.manufacturer?.shortName, new Select(manufacturer.firstElement()).firstSelectedOption?.text ?: "")
-        compareValue("name", ball.name, name)
-        compareValue("size", ball.size?.name(), size)
-        compareValue("surface", ball.surface?.name(), surface)
-        compareValue("speed", ball.speed, speed)
-        compareValue("shore", ball.shore, shore)
-        compareValue("weight", ball.weight, weight)
+        assertEquals("manufacturer", ball.manufacturer?.shortName, new Select(manufacturer.firstElement()).firstSelectedOption?.text ?: "")
+        assertEquals("name", ball.name ?: "", name.value())
+        assertEquals("size", ball.size?.name() ?: "", size.value())
+        assertEquals("surface", ball.surface?.name() ?: "", surface.value())
+        assertEquals("speed", ball.speed ?: "", speed.value())
+        assertEquals("shore", ball.shore ?: "", shore.value())
+        assertEquals("weight", ball.weight ?: "", weight.value())
         return true
     }
 

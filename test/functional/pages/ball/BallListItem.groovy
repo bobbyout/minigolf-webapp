@@ -4,16 +4,18 @@ import de.javandry.minigolf.webapp.Ball
 import geb.Module
 import org.openqa.selenium.interactions.Actions
 
+import static org.junit.Assert.assertEquals
+
 class BallListItem extends Module {
 
     static content = {
-        manufacturer { $("span", class: "manufacturer").text()?.trim() }
-        name { $("span", class: "name").text()?.trim() }
-        size { $("span", class: "size").text()?.trim() }
-        surface { $("span", class: "surface").text()?.trim() }
-        speed { $("span", class: "speed").text()?.trim() }
-        shore { $("span", class: "shore").text()?.trim() }
-        weight { $("span", class: "weight").text()?.trim() }
+        manufacturer { $("span.manufacturer").text()?.trim() }
+        name { $("span.name").text()?.trim() }
+        size { $("span.size").text()?.trim() }
+        surface { $("span.surface").text()?.trim() }
+        speed { $("span.speed").text()?.trim() }
+        shore { $("span.shore").text()?.trim() }
+        weight { $("span.weight").text()?.trim() }
         editButton { $("input.item-button.edit") }
         deleteButton { $("input.item-button.delete") }
     }
@@ -39,6 +41,17 @@ class BallListItem extends Module {
         if (surface != ballSurface)
             return false
 
+        return true
+    }
+
+    def shows(Ball ball) {
+        assertEquals("manufacturer", ball.manufacturer?.shortName ?: "", manufacturer)
+        assertEquals("name", ball.name ?: "", name)
+        assertEquals("size", ball.size?.name() ?: "", size)
+        assertEquals("surface", ball.surface?.name() ?: "", surface)
+        assertEquals("speed", ball.speed ?: "", speed)
+        assertEquals("shore", ball.shore ?: "", shore)
+        assertEquals("weight", ball.weight ?: "", weight)
         return true
     }
 
