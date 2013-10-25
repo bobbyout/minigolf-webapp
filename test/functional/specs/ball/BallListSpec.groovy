@@ -124,4 +124,50 @@ class BallListSpec extends AbstractBallSpec {
         at BallEditPage
         shows(ball2)
     }
+
+    def "allows user to delete ball"() {
+        given:
+        threeBalls()
+        loggedInAsUser()
+        to BallListPage
+
+        when:
+        findBall(ball1).delete()
+
+        then:
+        at BallListPage
+        message == "Ball $ball1.id deleted"
+        !shows(ball1)
+    }
+
+    def "allows admin to delete ball"() {
+        given:
+        threeBalls()
+        loggedInAsAdmin()
+        to BallListPage
+
+        when:
+        findBall(ball1).delete()
+
+        then:
+        at BallListPage
+        message == "Ball $ball1.id deleted"
+        !shows(ball1)
+    }
+
+    @Ignore("Needs Javascript support, not available with HTMLUnit driver")
+    def "cancel delete ball"() {
+        given:
+        threeBalls()
+        loggedInAsUser()
+        to BallListPage
+
+        when:
+        def ballItem = findBall(ball1)
+
+        then:
+        assert withConfirm(false) {
+            ballItem.deleteButton.click()
+        } == "Are you sure?"
+    }
 }

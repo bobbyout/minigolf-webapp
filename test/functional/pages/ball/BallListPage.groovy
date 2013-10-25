@@ -10,6 +10,7 @@ class BallListPage extends Page {
     static at = { title.startsWith "Balls" }
 
     static content = {
+        message(required: false) { $("div.message")?.text()?.trim() }
         items { moduleList BallListItem, $("li.item") }
         createButton(required: false) { $("a#create") }
     }

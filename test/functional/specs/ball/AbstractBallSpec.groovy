@@ -26,7 +26,8 @@ abstract class AbstractBallSpec extends AbstractBaseSpec {
     }
 
     def oneBall() {
-        ball1 = Ball.build(manufacturer: manufacturer3D, name: "type 543", size: Ball.Size.m, surface: Ball.Surface.l)
+        Ball.build(manufacturer: manufacturer3D, name: "type 543", size: Ball.Size.m, surface: Ball.Surface.l)
+        ball1 = Ball.findByName("type 543")
     }
 
     def threeBalls() {
