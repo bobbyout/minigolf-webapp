@@ -18,24 +18,16 @@ class BallListItem extends AbstractListItemModule {
     }
 
     def equals(Ball ball) {
-        def ballManufacturer = ball.manufacturer?.shortName ?: ""
-        println("manufacturer: $manufacturer - $ballManufacturer")
-        if (manufacturer != ballManufacturer)
+        if (manufacturer != (ball.manufacturer?.shortName ?: ""))
             return false
 
-        def ballName = ball.name ?: ""
-        println("name: $name - $ballName")
-        if (name != ballName)
+        if (name != (ball.name ?: ""))
             return false
 
-        def ballSize = ball.size?.name() ?: ""
-        println("size: $size - $ballSize")
-        if (size != ballSize)
+        if (size != (ball.size?.name() ?: ""))
             return false
 
-        def ballSurface = ball.surface?.name() ?: ""
-        println("surface: $surface - $ballSurface")
-        if (surface != ballSurface)
+        if (surface != (ball.surface?.name() ?: ""))
             return false
 
         return true
@@ -46,9 +38,9 @@ class BallListItem extends AbstractListItemModule {
         assertEquals("name", ball.name ?: "", name)
         assertEquals("size", ball.size?.name() ?: "", size)
         assertEquals("surface", ball.surface?.name() ?: "", surface)
-        assertEquals("speed", ball.speed ?: "", speed)
-        assertEquals("shore", ball.shore ?: "", shore)
-        assertEquals("weight", ball.weight ?: "", weight)
+        assertEquals("speed", ball.speed?.toString() ?: "", speed)
+        assertEquals("shore", ball.shore?.toString() ?: "", shore)
+        assertEquals("weight", ball.weight?.toString() ?: "", weight)
         return true
     }
 

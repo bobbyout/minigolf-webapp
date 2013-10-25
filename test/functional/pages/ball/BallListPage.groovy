@@ -23,7 +23,7 @@ class BallListPage extends Page {
     }
 
     def shows(Ball ball) {
-        findBall(ball).shows(ball)
+        findBall(ball)?.shows(ball)
     }
 
     def createNew() {
