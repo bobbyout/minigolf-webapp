@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title><g:layoutTitle/> | Javandry Minigolf Webapp</title>
+    <title><g:layoutTitle/> - <g:message code="app.title"/></title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
+    <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.png')}" type="image/x-icon">
 
     <g:javascript library="jquery" plugin="jquery"/>
 
@@ -144,7 +144,7 @@
 
 <g:layoutBody/>
 
-<footer>© 2013 by Torsten Mandry</footer>
+<footer><g:message code="app.footer"/></footer>
 
 <g:javascript library="application"/>
 <r:layoutResources/>
