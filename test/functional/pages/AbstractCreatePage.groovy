@@ -1,6 +1,6 @@
 package pages
 
-class AbstractCreatePage extends AbstractPage {
+abstract class AbstractCreatePage extends AbstractPage {
 
     static content = {
         errors { $('ul.messages.error') }

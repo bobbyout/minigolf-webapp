@@ -4,7 +4,7 @@ import geb.Module
 import org.openqa.selenium.interactions.Actions
 
 
-class AbstractListItemModule extends Module {
+abstract class AbstractListItemModule extends Module {
 
     static content = {
         editButton { $("input.item-button.edit") }

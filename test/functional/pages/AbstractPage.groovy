@@ -3,6 +3,6 @@ package pages
 import geb.Page
 
 
-class AbstractPage extends Page {
+abstract class AbstractPage extends Page {
 
 }
