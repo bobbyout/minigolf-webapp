@@ -95,6 +95,19 @@ class BallListSpec extends AbstractBallSpec {
         shows(ball1)
     }
 
+    def "allows admin to edit ball"() {
+        given:
+        threeBalls()
+        loggedInAsAdmin()
+        to BallListPage
+
+        when:
+        findBall(ball1).edit()
+
+        then:
+        at BallEditPage
+        shows(ball1)
+    }
 
     @Ignore
     def "double click on item opens ball for edit"() {
