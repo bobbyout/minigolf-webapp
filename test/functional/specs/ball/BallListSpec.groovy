@@ -53,8 +53,7 @@ class BallListSpec extends AbstractBallSpec {
         to BallListPage
 
         then:
-        at BallListPage
-        shows([ball1, ball2, ball3]);
+        shows([ball1, ball2, ball3])
     }
 
     def "allows user to create new ball"() {
@@ -78,7 +77,7 @@ class BallListSpec extends AbstractBallSpec {
         createNew()
 
         then:
-        thrown(UnsupportedOperationException)
+        thrown UnsupportedOperationException
         at BallListPage
     }
 
