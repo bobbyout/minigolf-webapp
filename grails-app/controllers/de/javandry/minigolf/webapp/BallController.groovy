@@ -17,6 +17,7 @@ class BallController {
         [ballInstanceList: Ball.list(params), ballInstanceTotal: Ball.count()]
     }
 
+    @Secured(['ROLE_USER'])
     def create() {
         [ballInstance: new Ball(params)]
     }

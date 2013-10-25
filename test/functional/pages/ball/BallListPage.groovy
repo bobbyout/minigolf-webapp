@@ -11,7 +11,7 @@ class BallListPage extends Page {
 
     static content = {
         items { moduleList BallListItem, $("li.item") }
-        createButton { $("a#create") }
+        createButton(required: false) { $("a#create") }
     }
 
     def find(Ball ball) {
@@ -27,6 +27,9 @@ class BallListPage extends Page {
     }
 
     def createNew() {
+        if (createButton.isEmpty())
+            throw new UnsupportedOperationException("not available")
+
         createButton.click()
     }
 }

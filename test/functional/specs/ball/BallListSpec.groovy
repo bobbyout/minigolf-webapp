@@ -57,7 +57,7 @@ class BallListSpec extends AbstractBallSpec {
         shows([ball1, ball2, ball3]);
     }
 
-    def "create new ball"() {
+    def "allows user to create new ball"() {
         given:
         loggedInAsUser()
         to BallListPage
@@ -67,6 +67,19 @@ class BallListSpec extends AbstractBallSpec {
 
         then:
         at BallCreatePage
+    }
+
+    def "not allows admin to create new ball"() {
+        given:
+        loggedInAsAdmin()
+        to BallListPage
+
+        when:
+        createNew()
+
+        then:
+        thrown(UnsupportedOperationException)
+        at BallListPage
     }
 
     @Ignore
