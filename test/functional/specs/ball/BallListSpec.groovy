@@ -18,6 +18,17 @@ class BallListSpec extends AbstractBallSpec {
         at BallListPage
     }
 
+    def "is available for admin"() {
+        given:
+        loggedInAsAdmin()
+
+        when:
+        to BallListPage
+
+        then:
+        at BallListPage
+    }
+
     def "is not available for anonymous"() {
         given:
         notLoggedIn()
