@@ -1,6 +1,7 @@
 package specs.ball
 
 import pages.LoginPage
+import pages.ball.BallCreatePage
 import pages.ball.BallEditPage
 import pages.ball.BallListPage
 import spock.lang.Ignore
@@ -54,6 +55,18 @@ class BallListSpec extends AbstractBallSpec {
         then:
         at BallListPage
         shows([ball1, ball2, ball3]);
+    }
+
+    def "create new ball"() {
+        given:
+        loggedInAsUser()
+        to BallListPage
+
+        when:
+        createNew()
+
+        then:
+        at BallCreatePage
     }
 
     @Ignore

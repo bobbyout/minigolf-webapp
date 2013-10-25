@@ -25,4 +25,8 @@ class BallListPage extends Page {
     def shows(Ball ball) {
         find(ball)
     }
+
+    def createNew() {
+        createButton.click()
+    }
 }
