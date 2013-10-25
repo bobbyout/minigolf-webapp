@@ -1,10 +1,36 @@
 package specs.ball
 
+import pages.LoginPage
 import pages.ball.BallEditPage
 import pages.ball.BallListPage
 import spock.lang.Ignore
 
 class BallListSpec extends AbstractBallSpec {
+
+    def "is available for user"() {
+        given:
+        loggedInAsUser()
+
+        when:
+        to BallListPage
+
+        then:
+        at BallListPage
+    }
+
+    def "is not available for anonymous"() {
+        given:
+        notLoggedIn()
+
+        when:
+        // use browser.go with the url instead of the to method of the CreateQuestionPage because
+        // the to method automatically checks (with the at method of the page) if the navigation succeeded
+        // and that is not what we expect here
+        browser.go BallListPage.url
+
+        then:
+        at LoginPage
+    }
 
     def "shows all balls"() {
         given:

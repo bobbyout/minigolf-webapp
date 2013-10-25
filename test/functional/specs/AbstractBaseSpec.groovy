@@ -17,6 +17,9 @@ abstract class AbstractBaseSpec extends GebReportingSpec {
         loginWith(adminCredentials)
     }
 
+    def notLoggedIn() {
+    }
+
     private def loginWith(def credentials) {
         to LoginPage
         waitFor { at LoginPage }
