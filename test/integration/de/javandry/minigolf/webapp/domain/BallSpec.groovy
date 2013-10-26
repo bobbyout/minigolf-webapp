@@ -1,12 +1,12 @@
 package de.javandry.minigolf.webapp.domain
 
 import de.javandry.minigolf.webapp.Ball
-import grails.plugin.spock.IntegrationSpec
+import spock.lang.Specification
 
 import static de.javandry.minigolf.webapp.Ball.Size.*
 import static de.javandry.minigolf.webapp.Ball.Surface.*
 
-class BallSpec extends IntegrationSpec {
+class BallSpec extends Specification {
 
     void "without name is invalid"() {
         setup:
