@@ -1,7 +1,7 @@
 grails.servlet.version = "2.5" // Change depending on target container compliance (2.5 or 3.0)
-grails.project.class.dir = "target/classes"
-grails.project.test.class.dir = "target/test-classes"
-grails.project.test.reports.dir = "target/test-reports"
+
+grails.project.work.dir = "target" // grails working directory inside application
+
 grails.project.target.level = 1.7
 grails.project.source.level = 1.7
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
@@ -32,8 +32,8 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.jboss.com/maven2/"
     }
 
-    def seleniumVersion = "2.21.0"
-    def gebVersion = "0.9.0"
+    def seleniumVersion = "2.26.0"
+    def gebVersion = "0.9.2"
 
     dependencies {
         test("org.seleniumhq.selenium:selenium-htmlunit-driver:$seleniumVersion") {
@@ -44,26 +44,21 @@ grails.project.dependency.resolution = {
         test "org.seleniumhq.selenium:selenium-support:$seleniumVersion"
 
         test "org.gebish:geb-spock:$gebVersion"
-        test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
     }
 
     plugins {
-        runtime ":hibernate:$grailsVersion"
+        runtime ":hibernate:3.6.10.2"
         runtime ":jquery:1.10.2"
-        runtime ":resources:1.1.6"
-        runtime ":database-migration:1.1"
-        runtime ":twitter-bootstrap:2.3.2"
+        runtime ":resources:1.2.1"
+        runtime ":database-migration:1.3.6"
 
-        build ":tomcat:$grailsVersion"
+        build ":tomcat:7.0.40.1"
 
-        compile ":cache:1.0.1"
+        compile ":cache:1.1.1"
         compile ":spring-security-core:1.2.7.3"
         compile ":webxml:1.4.1" // to fix ordering of filters in web.xml (see http://jira.grails.org/browse/GPCLOUDFOUNDRY-32)
 
         test ":geb:$gebVersion"
-        test(":spock:0.7") {
-            exclude "spock-grails-support"
-        }
-        test ":build-test-data:2.0.4"
+        test ":build-test-data:2.0.6"
     }
 }

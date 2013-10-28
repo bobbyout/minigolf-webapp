@@ -1,9 +1,9 @@
 package de.javandry.minigolf.webapp.domain
 
 import de.javandry.minigolf.webapp.Manufacturer
-import grails.plugin.spock.IntegrationSpec
+import spock.lang.Specification
 
-class ManufacturerSpec extends IntegrationSpec {
+class ManufacturerSpec extends Specification {
 
     void "always has a short name"() {
         setup:

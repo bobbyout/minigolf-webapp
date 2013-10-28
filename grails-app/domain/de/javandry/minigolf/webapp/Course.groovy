@@ -12,6 +12,7 @@ class Course {
 
     static constraints = {
         name(nullable: false, blank: false)
+        address(nullable: true, blank: true)
         type(nullable: false)
     }
 
