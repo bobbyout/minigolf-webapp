@@ -67,6 +67,6 @@ class CourseCreateSpec extends AbstractBaseSpec {
 
         then:
         at CourseCreatePage
-        errorForField("name") == "Property [Name] of class [Course] cannot be blank"
+        errorForField("name") == "Please enter a name for the course"
     }
 }
