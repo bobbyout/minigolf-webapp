@@ -21,6 +21,8 @@ class CourseListPage extends AbstractCoursePage {
 
     boolean shows(Course expectedCourse) {
         def actualCourse = courses.find { it.name == expectedCourse.name };
+        if (actualCourse == null)
+            return false
 
         String expectedCourseType = lookupCourseTypeMessage(expectedCourse)
         assert actualCourse.type == expectedCourseType
@@ -49,4 +51,7 @@ class CourseListPage extends AbstractCoursePage {
         courses.find { it.name == courseName }?.editButton?.click();
     }
 
+    void delete(def courseName) {
+        courses.find { it.name == courseName }?.deleteButton?.click();
+    }
 }

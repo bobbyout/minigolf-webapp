@@ -9,7 +9,6 @@ class CourseListSpec extends AbstractBaseSpec {
     Course course1, course2, course3
 
     def setup() {
-        loggedInAsUser()
         Course.clear()
         assert Course.count() == 0
         course1 = Course.build(name: "Köln Müngersdorf", type: Course.Type.ABT_1, address: "Aachener Str.703, 50933 Köln")
@@ -18,7 +17,10 @@ class CourseListSpec extends AbstractBaseSpec {
         assert Course.count() == 3
     }
 
-    def "lists all existing courses"() {
+    def "as a user i can see all existing courses"() {
+        given:
+        loggedInAsUser()
+
         when:
         to CourseListPage
 
@@ -28,4 +30,18 @@ class CourseListSpec extends AbstractBaseSpec {
         shows(course3)
     }
 
+    def "as an administrator i can delete an existing course"() {
+        given:
+        loggedInAsAdmin()
+
+        when:
+        to CourseListPage
+        delete(course1.name)
+
+        then:
+        at CourseListPage
+        !shows(course1)
+        shows(course2)
+        shows(course3)
+    }
 }

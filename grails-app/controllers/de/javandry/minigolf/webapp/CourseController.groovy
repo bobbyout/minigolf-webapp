@@ -3,7 +3,7 @@ package de.javandry.minigolf.webapp
 import grails.plugins.springsecurity.Secured
 import org.springframework.dao.DataIntegrityViolationException
 
-@Secured(['ROLE_USER'])
+@Secured(['ROLE_USER', 'ROLE_ADMIN'])
 class CourseController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]

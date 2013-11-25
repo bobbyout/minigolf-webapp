@@ -9,5 +9,6 @@ class CourseModule extends Module {
         type { $("span", class: "type").text()?.trim() }
         address { $("address").text()?.trim() }
         editButton { $("input.item-button.edit") }
+        deleteButton { $("input.item-button.delete") }
     }
 }
