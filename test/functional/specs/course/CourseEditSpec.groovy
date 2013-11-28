@@ -67,6 +67,26 @@ class CourseEditSpec extends AbstractBaseSpec {
         shows(name: newCourseName, type: oldCourseType, address: oldCourseAddress)
     }
 
+    def "edit type"() {
+        given:
+        to CourseListPage
+
+        when:
+        edit(oldCourseName)
+
+        then:
+        at CourseEditPage
+        shows(name: oldCourseName, type: oldCourseType, address: oldCourseAddress)
+
+        when:
+        type = newCourseType
+        saveButton.click()
+
+        then:
+        at CourseListPage
+        shows(name: oldCourseName, type: newCourseType, address: oldCourseAddress)
+    }
+
     def "cancel edit course"() {
         given:
         to CourseListPage
