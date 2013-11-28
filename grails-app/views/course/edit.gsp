@@ -46,7 +46,7 @@
         <g:render template="form"/>
 
         <div class="buttons">
-            <g:link name="cancel" class="button"
+            <g:link elementId="cancel" class="button"
                     action="list"><g:message code="default.button.cancel.label"/></g:link>
             <g:actionSubmit name="delete" class="button"
                             action="delete" formnovalidate=""

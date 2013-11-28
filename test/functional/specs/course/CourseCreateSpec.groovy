@@ -85,6 +85,5 @@ class CourseCreateSpec extends AbstractBaseSpec {
         then:
         at CourseListPage
         !shows(name: aCourseName, type: aCourseType, address: aCourseAddress)
-
     }
 }

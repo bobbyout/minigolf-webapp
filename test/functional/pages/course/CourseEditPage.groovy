@@ -10,6 +10,7 @@ class CourseEditPage extends AbstractCoursePage {
         type { $("select", id: "type") }
         address { $("textarea", id: "address") }
         saveButton { $("input", id: "update") }
+        cancelButton { $("a#cancel") }
     }
 
     String errorForField(String fieldName) {
@@ -34,5 +35,9 @@ class CourseEditPage extends AbstractCoursePage {
         }
         saveButton.click()
         */
+    }
+
+    def cancel() {
+        cancelButton.click()
     }
 }
