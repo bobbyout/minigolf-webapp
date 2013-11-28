@@ -9,7 +9,7 @@ class CourseListPage extends AbstractCoursePage {
     static at = { title.startsWith "Courses" }
 
     static content = {
-        createButton { $("a", id: "create") }
+        createButton { $("a#create") }
 
         courses { moduleList CourseModule, $("li.item.course") }
 

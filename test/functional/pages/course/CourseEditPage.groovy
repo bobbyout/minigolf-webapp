@@ -6,10 +6,10 @@ class CourseEditPage extends AbstractCoursePage {
 
     static content = {
         errors { $("ul.messages.error") }
-        name { $("input", id: "name") }
-        type { $("select", id: "type") }
-        address { $("textarea", id: "address") }
-        saveButton { $("input", id: "update") }
+        name { $("input#name") }
+        type { $("select#type") }
+        address { $("textarea#address") }
+        saveButton { $("input#update") }
         cancelButton { $("a#cancel") }
     }
 

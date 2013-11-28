@@ -6,10 +6,10 @@ class CourseCreatePage extends AbstractCoursePage {
 
     static content = {
         errors { $("ul.messages.error") }
-        name { $("input", id: "name") }
-        type { $("select", id: "type") }
-        address { $("textarea", id: "address") }
-        createButton { $("input", id: "create") }
+        name { $("input#name") }
+        type { $("select#type") }
+        address { $("textarea#address") }
+        createButton { $("input#create") }
         cancelButton { $("a#cancel") }
     }
 
