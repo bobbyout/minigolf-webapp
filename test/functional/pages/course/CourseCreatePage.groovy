@@ -10,6 +10,7 @@ class CourseCreatePage extends AbstractCoursePage {
         type { $("select", id: "type") }
         address { $("textarea", id: "address") }
         createButton { $("input", id: "create") }
+        cancelButton { $("a#cancel") }
     }
 
     String errorForField(String fieldName) {
@@ -21,5 +22,9 @@ class CourseCreatePage extends AbstractCoursePage {
         type.value(args.type)
         address.value(args.address)
         createButton.click()
+    }
+
+    void cancel() {
+        cancelButton.click()
     }
 }

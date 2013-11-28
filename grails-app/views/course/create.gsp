@@ -44,7 +44,7 @@
         <g:render template="form"/>
 
         <div class="buttons">
-            <g:link name="cancel" class="button"
+            <g:link elementId="cancel" class="button"
                     action="list"><g:message code="default.button.cancel.label"/></g:link>
             <g:submitButton name="create" class="button default"
                             value="${message(code: 'default.button.create.label')}"/>

@@ -32,6 +32,8 @@ class CourseListPage extends AbstractCoursePage {
 
     boolean shows(def expectedCourse) {
         def actualCourse = courses.find { it.name == expectedCourse.name }
+        if (actualCourse == null)
+            return false
 
         String expectedCourseType = lookupCourseTypeMessage(expectedCourse)
         assert actualCourse.type == expectedCourseType

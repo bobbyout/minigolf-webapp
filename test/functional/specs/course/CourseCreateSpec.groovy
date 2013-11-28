@@ -69,4 +69,22 @@ class CourseCreateSpec extends AbstractBaseSpec {
         at CourseCreatePage
         errorForField("name") == "Please enter a name for the course"
     }
+
+    def "cancel create course"() {
+        given:
+        to CourseListPage
+        createNew()
+        at CourseCreatePage
+        name.value(aCourseName)
+        type.value(aCourseType)
+        address.value(aCourseAddress)
+
+        when:
+        cancel()
+
+        then:
+        at CourseListPage
+        !shows(name: aCourseName, type: aCourseType, address: aCourseAddress)
+
+    }
 }
