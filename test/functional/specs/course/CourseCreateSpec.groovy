@@ -12,12 +12,12 @@ class CourseCreateSpec extends AbstractBaseSpec {
     private static final String aCourseAddress = "Main Street 123, 45678 Downtown"
 
     def setup() {
-        loggedInAsUser()
         Course.findByName(aCourseName)?.delete(flush: true)
     }
 
-    def "create course with all properties"() {
+    def "as an administrator i can create a course with all properties"() {
         given:
+        loggedInAsAdmin()
         to CourseListPage
 
         when:
@@ -34,8 +34,9 @@ class CourseCreateSpec extends AbstractBaseSpec {
         shows(name: aCourseName, type: aCourseType, address: aCourseAddress)
     }
 
-    def "create course without address"() {
+    def "as an administrator i can create a course without an address"() {
         given:
+        loggedInAsAdmin()
         to CourseListPage
 
         when:
@@ -52,8 +53,9 @@ class CourseCreateSpec extends AbstractBaseSpec {
         shows(name: aCourseName, type: aCourseType, address: "")
     }
 
-    def "create course without name fails"() {
+    def "as an administrator i cannot create a course without a name"() {
         given:
+        loggedInAsAdmin()
         to CourseListPage
 
         when:
@@ -70,8 +72,9 @@ class CourseCreateSpec extends AbstractBaseSpec {
         errorForField("name") == "Please enter a name for the course"
     }
 
-    def "cancel create course"() {
+    def "as an administrator i can cancel the creation of a course"() {
         given:
+        loggedInAsAdmin()
         to CourseListPage
         createNew()
         at CourseCreatePage

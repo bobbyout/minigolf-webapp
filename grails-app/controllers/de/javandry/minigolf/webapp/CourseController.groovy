@@ -3,15 +3,17 @@ package de.javandry.minigolf.webapp
 import grails.plugins.springsecurity.Secured
 import org.springframework.dao.DataIntegrityViolationException
 
-@Secured(['ROLE_USER', 'ROLE_ADMIN'])
+@Secured(['ROLE_ADMIN'])
 class CourseController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def index() {
         redirect(action: "list", params: params)
     }
 
+    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         [courseInstanceList: Course.list(params), courseInstanceTotal: Course.count()]
@@ -32,6 +34,7 @@ class CourseController {
         redirect(action: "list")
     }
 
+    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def show(Long id) {
         def courseInstance = Course.get(id)
         if (!courseInstance) {
@@ -43,7 +46,6 @@ class CourseController {
         [courseInstance: courseInstance]
     }
 
-    @Secured(['ROLE_ADMIN'])
     def edit(Long id) {
         def courseInstance = Course.get(id)
         if (!courseInstance) {
@@ -55,7 +57,6 @@ class CourseController {
         [courseInstance: courseInstance]
     }
 
-    @Secured(['ROLE_ADMIN'])
     def update(Long id, Long version) {
         def courseInstance = Course.get(id)
         if (!courseInstance) {
@@ -85,7 +86,6 @@ class CourseController {
         redirect(action: "list")
     }
 
-    @Secured(['ROLE_ADMIN'])
     def delete(Long id) {
         def courseInstance = Course.get(id)
         if (!courseInstance) {
