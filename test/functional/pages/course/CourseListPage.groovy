@@ -1,6 +1,5 @@
 package pages.course
 
-import de.javandry.minigolf.webapp.Course
 import pages.IndexPage
 
 class CourseListPage extends AbstractCoursePage {
@@ -17,17 +16,6 @@ class CourseListPage extends AbstractCoursePage {
             ResourceBundle bundle = new PropertyResourceBundle(new InputStreamReader(new FileInputStream('./grails-app/i18n/messages.properties'), "UTF-8"))
             bundle
         }
-    }
-
-    boolean shows(Course expectedCourse) {
-        def actualCourse = courses.find { it.name == expectedCourse.name };
-        if (actualCourse == null)
-            return false
-
-        String expectedCourseType = lookupCourseTypeMessage(expectedCourse)
-        assert actualCourse.type == expectedCourseType
-        assert actualCourse.address == expectedCourse.address
-        true
     }
 
     boolean shows(def expectedCourse) {
