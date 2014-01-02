@@ -43,13 +43,15 @@
                                          value="${message(code: 'default.button.edit.label')}"
                                          alt="${message(code: 'default.button.edit.label')}"
                                          title="${message(code: 'default.button.edit.label')}"/>
-                    <g:actionSubmitImage class="item-button delete"
-                                         action="delete"
-                                         onclick="return confirm('${message(code: 'default.button.delete.confirm.message')}');"
-                                         src="${resource(dir: 'images', file: 'delete.png')}"
-                                         value="${message(code: 'default.button.delete.label')}"
-                                         alt="${message(code: 'default.button.delete.label')}"
-                                         title="${message(code: 'default.button.delete.label')}"/>
+                    <sec:access url="/course/delete">
+                        <g:actionSubmitImage class="item-button delete"
+                                             action="delete"
+                                             onclick="return confirm('${message(code: 'default.button.delete.confirm.message')}');"
+                                             src="${resource(dir: 'images', file: 'delete.png')}"
+                                             value="${message(code: 'default.button.delete.label')}"
+                                             alt="${message(code: 'default.button.delete.label')}"
+                                             title="${message(code: 'default.button.delete.label')}"/>
+                    </sec:access>
                 </g:form>
 
                 <div class="item-title course">

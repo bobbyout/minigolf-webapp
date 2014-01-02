@@ -41,6 +41,10 @@ class CourseListPage extends AbstractCoursePage {
         true
     }
 
+    def find(def expectedCourse) {
+        courses.find { it.name == expectedCourse?.name }
+    }
+
     private String lookupCourseTypeMessage(expectedCourse) {
         resourceBundle.getString("course.type.option." + expectedCourse.type.name())
     }

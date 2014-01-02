@@ -44,4 +44,16 @@ class CourseListSpec extends AbstractBaseSpec {
         shows(course2)
         shows(course3)
     }
+
+    def "as an user i cannot delete an existing course"() {
+        given:
+        loggedInAsUser()
+
+        when:
+        to CourseListPage
+        def course = find(course1)
+
+        then:
+        !course.deleteButton
+    }
 }

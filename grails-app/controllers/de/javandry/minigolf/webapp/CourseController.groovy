@@ -83,6 +83,7 @@ class CourseController {
         redirect(action: "list")
     }
 
+    @Secured(['ROLE_ADMIN'])
     def delete(Long id) {
         def courseInstance = Course.get(id)
         if (!courseInstance) {
