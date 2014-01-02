@@ -43,6 +43,7 @@ class CourseController {
         [courseInstance: courseInstance]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def edit(Long id) {
         def courseInstance = Course.get(id)
         if (!courseInstance) {
@@ -54,6 +55,7 @@ class CourseController {
         [courseInstance: courseInstance]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def update(Long id, Long version) {
         def courseInstance = Course.get(id)
         if (!courseInstance) {

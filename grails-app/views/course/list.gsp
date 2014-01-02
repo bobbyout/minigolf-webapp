@@ -37,12 +37,14 @@
                 <g:img dir="images" file="noimage.jpg" class="item-image course"/>
 
                 <g:form id="${courseInstance.id}" class="item-buttons">
-                    <g:actionSubmitImage class="item-button edit"
-                                         action="edit"
-                                         src="${resource(dir: 'images', file: 'edit.png')}"
-                                         value="${message(code: 'default.button.edit.label')}"
-                                         alt="${message(code: 'default.button.edit.label')}"
-                                         title="${message(code: 'default.button.edit.label')}"/>
+                    <sec:access url="/course/edit">
+                        <g:actionSubmitImage class="item-button edit"
+                                             action="edit"
+                                             src="${resource(dir: 'images', file: 'edit.png')}"
+                                             value="${message(code: 'default.button.edit.label')}"
+                                             alt="${message(code: 'default.button.edit.label')}"
+                                             title="${message(code: 'default.button.edit.label')}"/>
+                    </sec:access>
                     <sec:access url="/course/delete">
                         <g:actionSubmitImage class="item-button delete"
                                              action="delete"
