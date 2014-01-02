@@ -20,9 +20,11 @@
 
 <div id="page-menu" role="navigation">
     <ul>
-        <li><g:link elementId="create" action="create">
-            <g:message code="default.new.label" args="[entityName]"/>
-        </g:link></li>
+        <sec:access url="/course/create">
+            <li><g:link elementId="create" action="create">
+                <g:message code="default.new.label" args="[entityName]"/>
+            </g:link></li>
+        </sec:access>
     </ul>
 </div>
 

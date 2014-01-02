@@ -89,4 +89,15 @@ class CourseCreateSpec extends AbstractBaseSpec {
         at CourseListPage
         !shows(name: aCourseName, type: aCourseType, address: aCourseAddress)
     }
+
+    def "as a user i cannot create a course"() {
+        given:
+        loggedInAsUser()
+
+        when:
+        to CourseListPage
+
+        then:
+        !createButton
+    }
 }

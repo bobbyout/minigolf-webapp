@@ -121,5 +121,4 @@ class CourseEditSpec extends AbstractBaseSpec {
         then:
         !aCourse.editButton
     }
-
 }
