@@ -54,6 +54,8 @@ grails.project.dependency.resolution = {
 
         build ":tomcat:7.0.40.1"
 
+        compile ":excel-import:1.0.0"
+        compile ":joda-time:1.4"
         compile ":cache:1.1.1"
         compile ":spring-security-core:1.2.7.3"
         compile ":webxml:1.4.1" // to fix ordering of filters in web.xml (see http://jira.grails.org/browse/GPCLOUDFOUNDRY-32)
