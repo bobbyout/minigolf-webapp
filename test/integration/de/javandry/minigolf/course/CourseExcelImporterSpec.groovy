@@ -12,7 +12,7 @@ class CourseExcelImporterSpec extends Specification {
         importer = new CourseExcelImporter()
     }
 
-    def "import some courses"() {
+    def "import some new courses"() {
         when:
         importer.readFromFile(filename)
         def courses = importer.courses
